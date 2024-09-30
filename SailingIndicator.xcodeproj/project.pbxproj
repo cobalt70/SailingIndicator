@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0057882CAA45290019DEFF /* BoatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0057872CAA45290019DEFF /* BoatView.swift */; };
 		CEEC12AA2CA9398C001D22B6 /* SailingIndicatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC12A92CA9398C001D22B6 /* SailingIndicatorApp.swift */; };
 		CEEC12AC2CA9398C001D22B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC12AB2CA9398C001D22B6 /* ContentView.swift */; };
 		CEEC12AE2CA9398E001D22B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEC12AD2CA9398E001D22B6 /* Assets.xcassets */; };
 		CEEC12B22CA9398E001D22B6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEC12B12CA9398E001D22B6 /* Preview Assets.xcassets */; };
-		CEEC12BC2CA9398E001D22B6 /* SailingIndicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC12BB2CA9398E001D22B6 /* SailingIndicatorTests.swift */; };
-		CEEC12C62CA9398E001D22B6 /* SailingIndicatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC12C52CA9398E001D22B6 /* SailingIndicatorUITests.swift */; };
-		CEEC12C82CA9398E001D22B6 /* SailingIndicatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC12C72CA9398E001D22B6 /* SailingIndicatorUITestsLaunchTests.swift */; };
+		CEEC12D52CA939B7001D22B6 /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC12D42CA939B7001D22B6 /* CompassView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE0057872CAA45290019DEFF /* BoatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatView.swift; sourceTree = "<group>"; };
 		CEEC12A62CA9398C001D22B6 /* SailingIndicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SailingIndicator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEC12A92CA9398C001D22B6 /* SailingIndicatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SailingIndicatorApp.swift; sourceTree = "<group>"; };
 		CEEC12AB2CA9398C001D22B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,10 +41,8 @@
 		CEEC12AF2CA9398E001D22B6 /* SailingIndicator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SailingIndicator.entitlements; sourceTree = "<group>"; };
 		CEEC12B12CA9398E001D22B6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CEEC12B72CA9398E001D22B6 /* SailingIndicatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SailingIndicatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEEC12BB2CA9398E001D22B6 /* SailingIndicatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SailingIndicatorTests.swift; sourceTree = "<group>"; };
 		CEEC12C12CA9398E001D22B6 /* SailingIndicatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SailingIndicatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEEC12C52CA9398E001D22B6 /* SailingIndicatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SailingIndicatorUITests.swift; sourceTree = "<group>"; };
-		CEEC12C72CA9398E001D22B6 /* SailingIndicatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SailingIndicatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CEEC12D42CA939B7001D22B6 /* CompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				CEEC12A82CA9398C001D22B6 /* SailingIndicator */,
-				CEEC12BA2CA9398E001D22B6 /* SailingIndicatorTests */,
-				CEEC12C42CA9398E001D22B6 /* SailingIndicatorUITests */,
 				CEEC12A72CA9398C001D22B6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,6 +93,8 @@
 			children = (
 				CEEC12A92CA9398C001D22B6 /* SailingIndicatorApp.swift */,
 				CEEC12AB2CA9398C001D22B6 /* ContentView.swift */,
+				CEEC12D42CA939B7001D22B6 /* CompassView.swift */,
+				CE0057872CAA45290019DEFF /* BoatView.swift */,
 				CEEC12AD2CA9398E001D22B6 /* Assets.xcassets */,
 				CEEC12AF2CA9398E001D22B6 /* SailingIndicator.entitlements */,
 				CEEC12B02CA9398E001D22B6 /* Preview Content */,
@@ -110,23 +108,6 @@
 				CEEC12B12CA9398E001D22B6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		CEEC12BA2CA9398E001D22B6 /* SailingIndicatorTests */ = {
-			isa = PBXGroup;
-			children = (
-				CEEC12BB2CA9398E001D22B6 /* SailingIndicatorTests.swift */,
-			);
-			path = SailingIndicatorTests;
-			sourceTree = "<group>";
-		};
-		CEEC12C42CA9398E001D22B6 /* SailingIndicatorUITests */ = {
-			isa = PBXGroup;
-			children = (
-				CEEC12C52CA9398E001D22B6 /* SailingIndicatorUITests.swift */,
-				CEEC12C72CA9398E001D22B6 /* SailingIndicatorUITestsLaunchTests.swift */,
-			);
-			path = SailingIndicatorUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +240,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEC12D52CA939B7001D22B6 /* CompassView.swift in Sources */,
 				CEEC12AC2CA9398C001D22B6 /* ContentView.swift in Sources */,
+				CE0057882CAA45290019DEFF /* BoatView.swift in Sources */,
 				CEEC12AA2CA9398C001D22B6 /* SailingIndicatorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +251,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEEC12BC2CA9398E001D22B6 /* SailingIndicatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +258,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEEC12C82CA9398E001D22B6 /* SailingIndicatorUITestsLaunchTests.swift in Sources */,
-				CEEC12C62CA9398E001D22B6 /* SailingIndicatorUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
