@@ -11,6 +11,7 @@ import SwiftUI
 
 struct CompassView: View {
     @StateObject private var locationManager = LocationManager()
+    @State var showAlert : Bool = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -125,7 +126,6 @@ struct CompassView: View {
                 }
                 .padding()
             }
-            
             
         }
     }

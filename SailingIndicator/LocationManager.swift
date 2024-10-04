@@ -14,15 +14,37 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var speed: CLLocationSpeed = 0.0 // 속도 (m/s)
     @Published var course: CLLocationDirection = 0.0 // 이동 방향 (degrees)
     @Published var heading: CLHeading? // 나침반 헤딩 정보
-
+  
+    
     override init() {
         super.init()
         locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation() // 위치 정보 업데이트
-        locationManager.startUpdatingHeading()  // 나침반 헤딩 정보 업데이트
+        
+        checkAuthorizationStatus()
     }
     
+    private func checkAuthorizationStatus() {
+            switch locationManager.authorizationStatus {
+            case .authorizedWhenInUse:
+                
+                print("authorizedWhenInUse")
+                locationManager.startUpdatingLocation()
+                locationManager.startUpdatingHeading()
+            case .denied, .restricted:
+                
+                print("denied or restricted")
+            case .notDetermined:
+                print("notDetermined. requestWhenInUseAuthorization")
+                locationManager.requestWhenInUseAuthorization()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                    self.checkAuthorizationStatus() // 권한 요청 후
+                }
+            default:
+                return
+            }
+        }
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             DispatchQueue.main.async {
@@ -37,4 +59,21 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             self.heading = newHeading
         }
     }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+
+            switch manager.authorizationStatus {
+            case .authorizedWhenInUse:
+                manager.startUpdatingLocation()
+                manager.startUpdatingHeading()
+            case .denied, .restricted:
+                // alert 구현
+                print("denied")
+            case .notDetermined:
+                manager.requestWhenInUseAuthorization()
+            default:
+                return
+            }
+        }
+    
 }

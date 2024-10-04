@@ -3,8 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>This app requires Location info.</string>
+	<string>Will you allow the app to use always and when in use?</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Will you allow the app to use the location info when you use the App.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>This app requires Location info.</string>
+	<string>Will you allow the app to use the location info always.</string>
 </dict>
 </plist>
