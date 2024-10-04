@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE0057882CAA45290019DEFF /* BoatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0057872CAA45290019DEFF /* BoatView.swift */; };
+		CE9439CD2CAFE915000E7442 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9439CC2CAFE915000E7442 /* LocationManager.swift */; };
 		CEEC12AA2CA9398C001D22B6 /* SailingIndicatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC12A92CA9398C001D22B6 /* SailingIndicatorApp.swift */; };
 		CEEC12AC2CA9398C001D22B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC12AB2CA9398C001D22B6 /* ContentView.swift */; };
 		CEEC12AE2CA9398E001D22B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEC12AD2CA9398E001D22B6 /* Assets.xcassets */; };
@@ -34,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		CE0057872CAA45290019DEFF /* BoatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatView.swift; sourceTree = "<group>"; };
+		CE9439CC2CAFE915000E7442 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		CE9439CE2CAFEDB8000E7442 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CEEC12A62CA9398C001D22B6 /* SailingIndicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SailingIndicator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEC12A92CA9398C001D22B6 /* SailingIndicatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SailingIndicatorApp.swift; sourceTree = "<group>"; };
 		CEEC12AB2CA9398C001D22B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,9 +94,11 @@
 		CEEC12A82CA9398C001D22B6 /* SailingIndicator */ = {
 			isa = PBXGroup;
 			children = (
+				CE9439CE2CAFEDB8000E7442 /* Info.plist */,
 				CEEC12A92CA9398C001D22B6 /* SailingIndicatorApp.swift */,
 				CEEC12AB2CA9398C001D22B6 /* ContentView.swift */,
 				CEEC12D42CA939B7001D22B6 /* CompassView.swift */,
+				CE9439CC2CAFE915000E7442 /* LocationManager.swift */,
 				CE0057872CAA45290019DEFF /* BoatView.swift */,
 				CEEC12AD2CA9398E001D22B6 /* Assets.xcassets */,
 				CEEC12AF2CA9398E001D22B6 /* SailingIndicator.entitlements */,
@@ -241,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEEC12D52CA939B7001D22B6 /* CompassView.swift in Sources */,
+				CE9439CD2CAFE915000E7442 /* LocationManager.swift in Sources */,
 				CEEC12AC2CA9398C001D22B6 /* ContentView.swift in Sources */,
 				CE0057882CAA45290019DEFF /* BoatView.swift in Sources */,
 				CEEC12AA2CA9398C001D22B6 /* SailingIndicatorApp.swift in Sources */,
@@ -404,6 +410,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SailingIndicator/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We'll use your location info";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This App requires location info.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -442,6 +451,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SailingIndicator/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We'll use your location info";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This App requires location info.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

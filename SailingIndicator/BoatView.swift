@@ -11,15 +11,15 @@ import SwiftUI
 struct BoatView: View{
     
     var body: some View {
-        let lb1 = CGPoint(x: 150, y: 100)
-        let lb2 = CGPoint(x : 130, y: 150)
-        let lb3 = CGPoint(x: 130, y: 150)
-        let lb4 = CGPoint(x : 130, y: 200)
+        let lb1 = CGPoint(x:  0, y: -50)
+        let lb2 = CGPoint(x : -20, y: 0)
+        let lb3 = CGPoint(x:  -20, y: 0)
+        let lb4 = CGPoint(x : -20, y: 50)
         
-        let rb1 = CGPoint(x: 150, y: 100)
-        let rb2 = CGPoint(x : 170, y: 150)
-        let rb3 = CGPoint(x:  170, y: 150)
-        let rb4 = CGPoint(x : 170, y: 200)
+        let rb1 = CGPoint(x: 0, y: -50)
+        let rb2 = CGPoint(x : 20, y: 0)
+        let rb3 = CGPoint(x:  20, y: 0)
+        let rb4 = CGPoint(x : 20, y: 50)
         
         
         ZStack {
