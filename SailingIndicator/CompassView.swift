@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct CompassView: View {
-    @StateObject private var locationManager = LocationManager()
+    @EnvironmentObject private var locationManager : LocationManager
     @State var showAlert : Bool = false
     
     var body: some View {
@@ -112,10 +112,22 @@ struct CompassView: View {
                     }
                 
                 VStack(alignment: .center) {
-                    Text("Speed: \(locationManager.speed, specifier: "%.2f") m/s")
-                        .font(.title3)
-                    Text("Course: \(locationManager.course, specifier: "%.2f")º")
-                        .font(.title3)
+                    if locationManager.speed >= 0 {
+                        Text("Speed: \(locationManager.speed, specifier: "%.2f") m/s")
+                        .font(.title3)}
+                    else {
+                        Text("Getting speed...")
+                            .font(.title3)
+                    }
+                    if locationManager.course >= 0 {
+                        Text("Course: \(locationManager.course, specifier: "%.2f")º")
+                            .font(.title3)
+                    }
+                    else {
+                        Text("Getting course...")
+                            .font(.title3)
+                    }
+                  
                     if let heading = locationManager.heading {
                         Text("Heading: \(heading.magneticHeading, specifier: "%.2f")º")
                             .font(.title3)
@@ -123,6 +135,13 @@ struct CompassView: View {
                         Text("Getting Heading...")
                             .font(.title)
                     }
+                }
+                .alert(isPresented: $locationManager.showAlert) {
+                    Alert(
+                        title: Text("Error"),
+                        message: Text("Location services are disabled."),
+                        dismissButton: .default(Text("OK"))
+                    )
                 }
                 .padding()
             }
@@ -134,6 +153,6 @@ struct CompassView: View {
 
 struct CompassView_Previews: PreviewProvider {
     static var previews: some View {
-        CompassView()
+        CompassView().environmentObject(LocationManager())
     }
 }
