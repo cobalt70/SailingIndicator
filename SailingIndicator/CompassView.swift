@@ -143,7 +143,7 @@ struct CompassView: View {
                         dismissButton: .default(Text("OK"))
                     )
                 }
-                .padding()
+                .padding(5)
             }
             
         }

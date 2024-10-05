@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var locationManager = LocationManager()
-    @StateObject private var sailingDataCollector = SailingDataCollector()
+    @StateObject  var locationManager = LocationManager()
+    @StateObject  var sailingDataCollector = SailingDataCollector(locationManager: LocationManager())
+    
     var body: some View {
         ScrollView{
             VStack {
                 CompassView().environmentObject(locationManager)
                 
          
-                MapView().environmentObject(locationManager).padding()
+                MapView(locationManager:locationManager).environmentObject(sailingDataCollector)
                     .offset(x:0, y: 450)
 
             }

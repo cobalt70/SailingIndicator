@@ -17,7 +17,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var latitude: CLLocationDegrees = 0.0
     @Published var longitude: CLLocationDegrees = 0.0
     @Published var showAlert : Bool = false
-    @Published var  location: CLLocation?
+    @Published var  lastLocation: CLLocation?
 
     let distanceFilter = 5.0
     let headingFilter  = 1.0
@@ -28,15 +28,17 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.distanceFilter = distanceFilter
         locationManager.headingFilter = headingFilter
-        
+    
+        // locationSericeEnable 체크는 필요없나???
         checkAuthorizationStatus()
+       
     }
     
     func checkAuthorizationStatus() {
         switch locationManager.authorizationStatus  {
                 
         case .authorizedWhenInUse , .authorizedAlways :
-                print("authorizedWhenInUse or authorizedAlways")
+                print("authorizedWhenInUse or authorizedAlways ")
                 locationManager.startUpdatingLocation()
                 locationManager.startUpdatingHeading()
             
@@ -61,7 +63,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 self.course = location.course
                 self.latitude = location.coordinate.latitude
                 self.longitude  = location.coordinate.longitude
-                
+                self.lastLocation = location
                 
             }
         }
