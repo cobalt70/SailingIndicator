@@ -12,52 +12,85 @@ import SwiftUI
 struct MapView: View {
     @EnvironmentObject var vm: SailingDataCollector
   
-    @State private var cameraPosition: MapCameraPosition = .region(MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 36.017470189362115, longitude: 129.32224097538742), 
-        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-    ))
+//    @State private var cameraPosition: MapCameraPosition = .region(MKCoordinateRegion(
+//        center: CLLocationCoordinate2D(latitude: 36.017470189362115, longitude: 129.32224097538742), 
+//        span: MKCoordinateSpan(latitudeDelta: mapShowingDegree, longitudeDelta: mapShowingDegree)
+//    ))
+//    
+    @State private var coordinates: [CLLocationCoordinate2D] = []
     
-    @State private var coordinates: [CLLocationCoordinate2D] = [] // State로 변경
-
-   
-    @ObservedObject  var locationManager : LocationManager
+    @State private var position: MapCameraPosition = .automatic
+    
+    @EnvironmentObject var locationManager : LocationManager
         
-   
+    let mapShowingDegree = 0.05
     
     var body: some View {
-        Map(position: $cameraPosition, interactionModes: [.all]){
-                MapPolyline(coordinates: coordinates)
-                    .stroke(Color.blue, lineWidth: 2)
-               
-            }
+//        Map(position: $cameraPosition, interactionModes: [.all]){
+//                MapPolyline(coordinates: coordinates)
+//                    .stroke(Color.blue, lineWidth: 2)
+//               
+//            }
+        Map(position: $position, interactionModes: [.all] ){
+                        MapPolyline(coordinates: coordinates)
+                            .stroke(Color.blue, lineWidth: 2)
+        
+                    }
+        
             .onAppear {
-                updateCameraPosition(with: locationManager.lastLocation)
+//                position = .userLocation(followsHeading: true, fallback: MapCameraPosition.region(MKCoordinateRegion(
+//                            center: CLLocationCoordinate2D(latitude: 36.017470189362115, longitude: 129.32224097538742),
+//                            span: MKCoordinateSpan(latitudeDelta: mapShowingDegree, longitudeDelta: mapShowingDegree)
+//                        )))
+//              updateCameraPosition(with: locationManager.lastLocation)  //<= 이것도 .automatic과 중복됨
+        
                 updateCoordinates() // 초기 좌표 업데이트
             }
-            .onChange(of: locationManager.lastLocation) { newValue, oldValue in
+//            .onChange(of: locationManager.lastLocation) { newValue, oldValue in
+//                // 1분단위로 SailingData를 저장하는데 locationManager를 사용할 필요가 있는가?
+//                if newValue != oldValue {
+//                    updateCameraPosition(with : newValue) // 카메라 위치 업데이트
+//                    updateCoordinates() //좌표 업데이트
+//                }
+//                print("sailing data array changed : \(coordinates.count)")
+//            }
+            .onChange(of : vm.sailingDataArray) {newValue, oldValue in
                 if newValue != oldValue {
-                    updateCameraPosition(with : newValue) // 카메라 위치 업데이트
+//                    let location = CLLocation(latitude: vm.sailingDataArray.last?.latitude ?? 36.01737499212958, longitude:vm.sailingDataArray.last?.longitude ?? 129.32226514081427 )
+//                    updateCameraPosition(with : location)
+                    
                     updateCoordinates() //좌표 업데이트
+                    print("vm.sailingdata array changed : \(coordinates.count)")
                 }
-                print("sailing data array changed : \(coordinates.count)")
             }
-            .frame(height: 200)
+            .frame(height: 300)
+            .mapControls{
+                MapUserLocationButton()
+                MapCompass()
+                MapScaleView()
+                
+            }
             .edgesIgnoringSafeArea(.all)
-        
-        
        
     }
-
+// updateCameraPosition 이 필요가 없음 왜냐면  case .automatic = position  이니까.
     private func updateCameraPosition(with location : CLLocation? = nil) {
-   
-            cameraPosition = .region(MKCoordinateRegion(
-                center: CLLocationCoordinate2D(latitude: location?.coordinate.latitude ?? 36.017470189362115, longitude: location?.coordinate.longitude ?? 129.32224097538742),
-                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-            ))
+         
+        if case .automatic = position {
             
+            return
+            
+        }
         
+        else {
+            position = .userLocation(followsHeading: true, fallback: MapCameraPosition.region(MKCoordinateRegion(
+                                       center: CLLocationCoordinate2D(latitude: 36.017470189362115, longitude: 129.32224097538742),
+                                       span: MKCoordinateSpan(latitudeDelta: mapShowingDegree, longitudeDelta: mapShowingDegree)
+                                   )))
+            
+        }
      
-        print("cameraposition updated : \(cameraPosition)")
+        print("cameraposition updated : \(position)")
     }
 
     private func updateCoordinates() {

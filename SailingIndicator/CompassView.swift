@@ -11,6 +11,7 @@ import SwiftUI
 
 struct CompassView: View {
     @EnvironmentObject private var locationManager : LocationManager
+    @EnvironmentObject private var windDetector : WindDetector
     @State var showAlert : Bool = false
     
     var body: some View {
@@ -111,39 +112,7 @@ struct CompassView: View {
                         BoatView().offset(x: cx, y: cy)
                     }
                 
-                VStack(alignment: .center) {
-                    if locationManager.speed >= 0 {
-                        Text("Speed: \(locationManager.speed, specifier: "%.2f") m/s")
-                        .font(.title3)}
-                    else {
-                        Text("Getting speed...")
-                            .font(.title3)
-                    }
-                    if locationManager.course >= 0 {
-                        Text("Course: \(locationManager.course, specifier: "%.2f")º")
-                            .font(.title3)
-                    }
-                    else {
-                        Text("Getting course...")
-                            .font(.title3)
-                    }
-                  
-                    if let heading = locationManager.heading {
-                        Text("Heading: \(heading.magneticHeading, specifier: "%.2f")º")
-                            .font(.title3)
-                    } else {
-                        Text("Getting Heading...")
-                            .font(.title)
-                    }
-                }
-                .alert(isPresented: $locationManager.showAlert) {
-                    Alert(
-                        title: Text("Error"),
-                        message: Text("Location services are disabled."),
-                        dismissButton: .default(Text("OK"))
-                    )
-                }
-                .padding(5)
+                
             }
             
         }

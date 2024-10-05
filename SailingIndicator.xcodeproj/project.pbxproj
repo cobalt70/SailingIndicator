@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		CE0057882CAA45290019DEFF /* BoatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0057872CAA45290019DEFF /* BoatView.swift */; };
+		CE5F23E22CB1C56900D5D1F7 /* WeatherKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5F23E12CB1C56900D5D1F7 /* WeatherKit.framework */; };
 		CE9439CD2CAFE915000E7442 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9439CC2CAFE915000E7442 /* LocationManager.swift */; };
 		CE9439D02CB03A72000E7442 /* SailingDataCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9439CF2CB03A70000E7442 /* SailingDataCollector.swift */; };
 		CE9439D22CB05BEF000E7442 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9439D12CB05BE6000E7442 /* MapView.swift */; };
+		CEA088B92CB1A28F00F46A72 /* WindDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA088B82CB1A28600F46A72 /* WindDetector.swift */; };
 		CEEC12AA2CA9398C001D22B6 /* SailingIndicatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC12A92CA9398C001D22B6 /* SailingIndicatorApp.swift */; };
 		CEEC12AC2CA9398C001D22B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC12AB2CA9398C001D22B6 /* ContentView.swift */; };
 		CEEC12AE2CA9398E001D22B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEC12AD2CA9398E001D22B6 /* Assets.xcassets */; };
@@ -37,10 +39,12 @@
 
 /* Begin PBXFileReference section */
 		CE0057872CAA45290019DEFF /* BoatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatView.swift; sourceTree = "<group>"; };
+		CE5F23E12CB1C56900D5D1F7 /* WeatherKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WeatherKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/WeatherKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE9439CC2CAFE915000E7442 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		CE9439CE2CAFEDB8000E7442 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CE9439CF2CB03A70000E7442 /* SailingDataCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SailingDataCollector.swift; sourceTree = "<group>"; };
 		CE9439D12CB05BE6000E7442 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		CEA088B82CB1A28600F46A72 /* WindDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindDetector.swift; sourceTree = "<group>"; };
 		CEEC12A62CA9398C001D22B6 /* SailingIndicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SailingIndicator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEC12A92CA9398C001D22B6 /* SailingIndicatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SailingIndicatorApp.swift; sourceTree = "<group>"; };
 		CEEC12AB2CA9398C001D22B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5F23E22CB1C56900D5D1F7 /* WeatherKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,10 +82,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE5F23E02CB1C56900D5D1F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE5F23E12CB1C56900D5D1F7 /* WeatherKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CEEC129D2CA9398C001D22B6 = {
 			isa = PBXGroup;
 			children = (
 				CEEC12A82CA9398C001D22B6 /* SailingIndicator */,
+				CE5F23E02CB1C56900D5D1F7 /* Frameworks */,
 				CEEC12A72CA9398C001D22B6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,6 +119,7 @@
 				CE9439CC2CAFE915000E7442 /* LocationManager.swift */,
 				CE9439CF2CB03A70000E7442 /* SailingDataCollector.swift */,
 				CE9439D12CB05BE6000E7442 /* MapView.swift */,
+				CEA088B82CB1A28600F46A72 /* WindDetector.swift */,
 				CE0057872CAA45290019DEFF /* BoatView.swift */,
 				CEEC12AD2CA9398E001D22B6 /* Assets.xcassets */,
 				CEEC12AF2CA9398E001D22B6 /* SailingIndicator.entitlements */,
@@ -252,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9439D22CB05BEF000E7442 /* MapView.swift in Sources */,
+				CEA088B92CB1A28F00F46A72 /* WindDetector.swift in Sources */,
 				CE9439D02CB03A72000E7442 /* SailingDataCollector.swift in Sources */,
 				CEEC12D52CA939B7001D22B6 /* CompassView.swift in Sources */,
 				CE9439CD2CAFE915000E7442 /* LocationManager.swift in Sources */,
@@ -419,8 +435,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SailingIndicator/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We'll use your location info";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This App requires location info.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Will you allow the app to use always and when in use?";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Will you allow the app to use the location info always.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Will you allow the app to use the location info when you use the App.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -460,8 +477,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SailingIndicator/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We'll use your location info";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This App requires location info.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Will you allow the app to use always and when in use?";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Will you allow the app to use the location info always.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Will you allow the app to use the location info when you use the App.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
