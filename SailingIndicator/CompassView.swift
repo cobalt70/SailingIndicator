@@ -23,6 +23,7 @@ struct CompassView: View {
             let cx = geometry.size.width * 0.5
             let cy = geometry.size.width * 0.5
             let center = CGPoint(x: cx, y: cy)
+            let r5 = geometry.size.width * 0.43
             VStack{
                 ZStack {
                     // 나침반 원
@@ -105,7 +106,25 @@ struct CompassView: View {
                         
                     }.rotationEffect(Angle(degrees: (  -(locationManager.heading?.magneticHeading ?? 0))), anchor: .init(x: cx / geometry.size.width , y: cy / geometry.size.width ))
                     
-                  
+                    let sfSymbolName = "location.north.fill"
+                    if let direction = windDetector.direction , let speed = windDetector.speed {
+                        let angle = Angle(degrees: 90 - direction + (locationManager.heading?.magneticHeading ?? 0)) // 각도 계산
+                        let x = r5 * cos(angle.radians) // x 좌표
+                        let y = r5 * sin(angle.radians) // y 좌표
+                        let finalRotation = direction  - (locationManager.heading?.magneticHeading ?? 0)
+                        
+                        Image(systemName: sfSymbolName)
+                            .rotationEffect(Angle(degrees: finalRotation + 180), anchor: .center)
+                            .frame(width: 10, height: 10) // 크기 지정
+                            .foregroundColor(.blue)
+                            .position(x:cx, y:cy)
+                            .offset(x: x, y: -y)
+                        
+                        
+                    }
+                    
+                    
+                    
 
                 }.frame(width: geometry.size.width, height: geometry.size.width )
                     .overlay{
@@ -120,8 +139,13 @@ struct CompassView: View {
     
 }
 
+
+
+
+
 struct CompassView_Previews: PreviewProvider {
     static var previews: some View {
         CompassView().environmentObject(LocationManager())
     }
 }
+

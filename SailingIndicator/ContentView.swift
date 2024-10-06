@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject  var locationManager = LocationManager()
-    @StateObject  var sailingDataCollector = SailingDataCollector()
+    @StateObject var locationManager = LocationManager()
+    @StateObject var sailingDataCollector = SailingDataCollector()
     @StateObject var windDetector = WindDetector()
     
     var body: some View {
         ScrollView{
+            CompassView()
+                .environmentObject(locationManager)
+                .environmentObject(windDetector)
+            
             VStack {
                 
-                CompassView()
-                    .environmentObject(locationManager)
-                    .environmentObject(windDetector)
                 
                 VStack(alignment: .center) {
                     if locationManager.speed >= 0 {
@@ -36,7 +37,7 @@ struct ContentView: View {
                         Text("Getting course...")
                             .font(.subheadline)
                     }
-                  
+                    
                     if let heading = locationManager.heading {
                         Text("Heading: \(heading.magneticHeading, specifier: "%.2f")º")
                             .font(.subheadline)
@@ -45,36 +46,50 @@ struct ContentView: View {
                             .font(.subheadline)
                     }
                     
-                    
-                    if let windSpeed = windDetector.currentWind?.speed.value {
-                       Text("Wind Speed: \(windSpeed, specifier: "%.2f") m/s")
-                            .font(.subheadline)
+                }
+                VStack(alignment: .center){
+                    if let location = locationManager.lastLocation   {
+                        
+                        if let timestamp = windDetector.timestamp {
+                            Text("Timestamp: \(timestamp) at \(location.coordinate.latitude), \(location.coordinate.longitude)")
+                                .font(.caption2)
+                        } else {
+                            Text("Timestamp: unavaiable at \(location.coordinate.latitude), \(location.coordinate.longitude)")
+                                .font(.caption2)
+                        }
+                        Text("Wind direction: \(String(describing: windDetector.direction ?? 0 ))°")
+                            .font(.caption2)
+                        Text("Wind speed : \(String(describing: windDetector.speed ?? 0 )) m/s")
+                            .font(.caption2)
+                        
                     }
-                    
-                    if let windDirection = windDetector.currentWind?.direction.value {
-                        Text("Wind Direction: \(windDirection, specifier: "%.2f")º")
+                    else {
+                        Text("Getting location...")
                             .font(.subheadline)
                     }
                 }
-                .alert(isPresented: $locationManager.showAlert) {
-                    Alert(
-                        title: Text("Error"),
-                        message: Text("Location services are disabled."),
-                        dismissButton: .default(Text("OK"))
-                    )
-                }
-                .offset(y:320)
                 
-                MapView()
-                    .environmentObject(sailingDataCollector)
-                    .environmentObject(locationManager)
-                    .offset(x:0, y: 380)
-
             }
-            .padding()
+            
+            .alert(isPresented: $locationManager.showAlert) {
+                Alert(
+                    title: Text("Error"),
+                    message: Text("Location services are disabled."),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
+            .offset(y:320)
+            
+            MapView()
+                .environmentObject(sailingDataCollector)
+                .environmentObject(locationManager)
+                .offset(x:0, y: 320)
+            
         }
+        .padding()
     }
 }
+
 
 #Preview {
     ContentView()
