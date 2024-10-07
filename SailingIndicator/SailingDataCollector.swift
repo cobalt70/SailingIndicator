@@ -15,9 +15,9 @@ struct SailingData : Equatable, Identifiable{
     var id: UUID = UUID()
     var timeStamp: Date
     var windSpeed: Double  // m/s
-    var windDirection: Double  //deg
+    var windDirection: Double?  //deg
     var boatSpeed: Double  // m/s
-    var boatDirection: Double  // deg
+    var boatDirection: Double? // deg
     
     var latitude: Double //deg
     var longitude: Double //deg
@@ -25,13 +25,15 @@ struct SailingData : Equatable, Identifiable{
 
 class SailingDataCollector : ObservableObject {
     @Published var sailingDataArray: [SailingData] = []
-    @ObservedObject var locationManager = LocationManager()// EnvironmentObject를 사용하는것과 어떻게 다르지?? 항상 햇갈림
-// 모델 vs 모델 인경우  파라메터로 주입시키고 값을 가져다쓰는 방식을 써봄
-//보통 뷰모델일때 @ObservedObject나 @EnvironmentObject를 사용하니까 일단 피함
+    @ObservedObject var locationManager = LocationManager()
+    @ObservedObject var windData = WindDetector()
+    // EnvironmentObject를 사용하는것과 어떻게 다르지?? 항상 햇갈림
+    // 모델 vs 모델 인경우  파라메터로 주입시키고 값을 가져다쓰는 방식을 써봄
+    //보통 뷰모델일때 @ObservedObject나 @EnvironmentObject를 사용하니까 일단 피함
     var cancellables: Set<AnyCancellable> = []
     
     init() {
-                if CLLocationManager().authorizationStatus == .authorizedAlways || CLLocationManager().authorizationStatus == .authorizedWhenInUse  {
+        if CLLocationManager().authorizationStatus == .authorizedAlways || CLLocationManager().authorizationStatus == .authorizedWhenInUse  {
                     print("start collect data")
                     self.startCollectingData(locationManager: locationManager )
                 } else {
@@ -54,12 +56,13 @@ class SailingDataCollector : ObservableObject {
     }
     func collectSailingData(locationManager: LocationManager) {
         let currentTime = Date()
-        let windSpeed = 7.0
-        let windDirection = 50.0
+        let windSpeed = windData.speed ?? 0
+        let windDirection = windData.direction 
         let boatSpeed =  locationManager.speed
         let boatDirection = locationManager.course
         let latitude = locationManager.latitude
         let longitude = locationManager.longitude
+
         let sailingData = SailingData(id: UUID(),
                                       timeStamp: currentTime,
                                       windSpeed: windSpeed,

@@ -11,39 +11,51 @@ struct ContentView: View {
     @StateObject var locationManager = LocationManager()
     @StateObject var sailingDataCollector = SailingDataCollector()
     @StateObject var windDetector = WindDetector()
+    @StateObject var apparentWind = ApparentWind()
     
     var body: some View {
-        ScrollView{
-            CompassView()
-                .environmentObject(locationManager)
-                .environmentObject(windDetector)
+        ScrollView(.vertical) {
+            VStack{
+                CompassView()
+                    .environmentObject(locationManager)
+                    .environmentObject(windDetector)
+                    .environmentObject(apparentWind)
+                
+            }
             
+            VStack{
+                MapView()
+                    .environmentObject(sailingDataCollector)
+                    .environmentObject(locationManager)
+                    .offset(x:0, y: 320)
+                
+            }
             VStack {
                 
                 
                 VStack(alignment: .center) {
                     if locationManager.speed >= 0 {
                         Text("Speed: \(locationManager.speed, specifier: "%.2f") m/s")
-                        .font(.subheadline)}
+                        .font(.caption2)}
                     else {
                         Text("Getting speed...")
-                            .font(.subheadline)
+                            .font(.caption2)
                     }
                     if locationManager.course >= 0 {
                         Text("Course: \(locationManager.course, specifier: "%.2f")º")
-                            .font(.subheadline)
+                            .font(.caption2)
                     }
                     else {
                         Text("Getting course...")
-                            .font(.subheadline)
+                            .font(.caption2)
                     }
                     
                     if let heading = locationManager.heading {
-                        Text("Heading: \(heading.magneticHeading, specifier: "%.2f")º")
-                            .font(.subheadline)
+                        Text("Heading: m:\(heading.magneticHeading, specifier: "%.2f")º t:\(heading.trueHeading, specifier: "%.2f")º")
+                            .font(.caption2)
                     } else {
                         Text("Getting Heading...")
-                            .font(.subheadline)
+                            .font(.caption2)
                     }
                     
                 }
@@ -57,15 +69,20 @@ struct ContentView: View {
                             Text("Timestamp: unavaiable at \(location.coordinate.latitude), \(location.coordinate.longitude)")
                                 .font(.caption2)
                         }
-                        Text("Wind direction: \(String(describing: windDetector.direction ?? 0 ))°")
+                        Text("True Wind direction: \(String(describing: windDetector.direction ?? 0 ))°")
                             .font(.caption2)
-                        Text("Wind speed : \(String(describing: windDetector.speed ?? 0 )) m/s")
+                        Text("True Wind speed : \(String(describing: windDetector.speed ?? 0 )) m/s")
                             .font(.caption2)
+                        Text("Apparent Wind direction: \(String(describing: apparentWind.direction ?? 0.0 ))°")
+                            .font(.caption2)
+                        Text("Apparent Wind speed : \(String(describing: apparentWind.speed ?? 0 )) m/s")
+                            .font(.caption2)
+                        
                         
                     }
                     else {
                         Text("Getting location...")
-                            .font(.subheadline)
+                            .font(.caption2)
                     }
                 }
                 
@@ -80,10 +97,6 @@ struct ContentView: View {
             }
             .offset(y:320)
             
-            MapView()
-                .environmentObject(sailingDataCollector)
-                .environmentObject(locationManager)
-                .offset(x:0, y: 320)
             
         }
         .padding()

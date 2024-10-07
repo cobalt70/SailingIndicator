@@ -1,0 +1,111 @@
+//
+//  ApparentWindViewModel.swift
+//  SailingIndicator
+//
+//  Created by Giwoo Kim on 10/7/24.
+//
+
+
+import Combine
+import Foundation
+import SwiftUI
+
+
+class ApparentWind : ObservableObject {
+     
+    @Published  var direction: Double? = nil
+    @Published  var speed:  Double? = nil
+    // 나중에  singleton으로  static 변수 하나만 선언해서  한번 선언되면 그것을 가져오는 식으로 수정..==> Singleton
+    // windDetector 안에 locationManager가 있음
+    @ObservedObject var windData = WindDetector()
+    
+    var cancellables: Set<AnyCancellable> = []
+ 
+    init()
+    {
+        startCollectingData()
+        
+    }
+    func startCollectingData() {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+//            self.calcApparentWind()
+//            
+//              }
+//        Timer.publish(every: 60, on: .main, in: .common)
+//            .autoconnect()
+//            .sink { [weak self] _ in
+//                self?.calcApparentWind()
+//            }
+//            .store(in: &cancellables)
+//        
+        
+        Publishers.CombineLatest3(windData.$timestamp, windData.$speed, windData.$direction)
+            .sink { [weak self] _ , _ , _  in 
+                self?.calcApparentWind()
+                       }
+                       .store(in: &cancellables)
+        
+        
+    }
+    
+    func calcApparentWind(){
+        
+        guard let windSpeed = windData.speed,
+           let windDirection  = windData.direction  else {
+            print("wind Data is not available")
+            return
+        }
+        var boatSpeed =  windData.locationManager.speed < 0 ? 0 : windData.locationManager.speed
+        
+        var boatCourse = windData.locationManager.course < 0 ? 0 : windData.locationManager.course
+        
+        if boatCourse < 0 { boatSpeed = 0}
+     
+        print("calcApparentWind from windSpeed: \(windSpeed) windDirection \(windDirection)")
+        print("calcApparentWind from boatSpeed: \(boatSpeed) boatDirection \(boatCourse)")
+        
+        var windX : Double {
+            let angle = Angle(degrees: 90 - windDirection)
+                              
+            return  windSpeed  * cos( angle.radians )
+        }
+        
+        var windY : Double {
+            let angle = Angle(degrees: 90 - windDirection)
+            return  windSpeed  * sin(angle.radians)
+        }
+        
+        var boatX : Double {
+            let angle = Angle(degrees: 90 - boatCourse)
+            return boatSpeed * cos(angle.radians)
+        }
+        
+        var boatY : Double {
+            let angle = Angle(degrees: 90 - boatCourse)
+            return boatSpeed * sin(angle.radians)
+        }
+        
+        var apparentWindX : Double  {
+           return  windX + boatX
+        }
+        
+        var apparentWindY : Double  {
+           return  windY + boatY
+        }
+        
+        speed = sqrt(pow(apparentWindX,2) + pow(apparentWindY,2) )
+        if speed != 0 {
+            direction  =  360 -  acos(apparentWindY  / speed! ) * (180 / Double.pi)
+        } else
+        {
+            direction = windDirection
+        }
+        
+        print("windx \(windX) windy \(windY)")
+        print("apparent wind speed \(speed!)")
+        print("apparent wind direction d: \(direction!)  s:\(speed!) x: \(apparentWindX) y: \(apparentWindY)")
+    }
+    
+}
+
+

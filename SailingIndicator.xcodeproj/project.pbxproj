@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE0057882CAA45290019DEFF /* BoatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0057872CAA45290019DEFF /* BoatView.swift */; };
 		CE6DBA122CB2CB5000525B4A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6DBA112CB2CB5000525B4A /* StoreKit.framework */; };
+		CE8155C32CB370C900E48987 /* ApparentWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8155C22CB370B200E48987 /* ApparentWind.swift */; };
 		CE9439CD2CAFE915000E7442 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9439CC2CAFE915000E7442 /* LocationManager.swift */; };
 		CE9439D02CB03A72000E7442 /* SailingDataCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9439CF2CB03A70000E7442 /* SailingDataCollector.swift */; };
 		CE9439D22CB05BEF000E7442 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9439D12CB05BE6000E7442 /* MapView.swift */; };
@@ -41,6 +42,7 @@
 		CE0057872CAA45290019DEFF /* BoatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatView.swift; sourceTree = "<group>"; };
 		CE5F23E12CB1C56900D5D1F7 /* WeatherKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WeatherKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/WeatherKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE6DBA112CB2CB5000525B4A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CE8155C22CB370B200E48987 /* ApparentWind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApparentWind.swift; sourceTree = "<group>"; };
 		CE9439CC2CAFE915000E7442 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		CE9439CE2CAFEDB8000E7442 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CE9439CF2CB03A70000E7442 /* SailingDataCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SailingDataCollector.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				CE9439CF2CB03A70000E7442 /* SailingDataCollector.swift */,
 				CE9439D12CB05BE6000E7442 /* MapView.swift */,
 				CEA088B82CB1A28600F46A72 /* WindDetector.swift */,
+				CE8155C22CB370B200E48987 /* ApparentWind.swift */,
 				CE0057872CAA45290019DEFF /* BoatView.swift */,
 				CEEC12AD2CA9398E001D22B6 /* Assets.xcassets */,
 				CEEC12AF2CA9398E001D22B6 /* SailingIndicator.entitlements */,
@@ -270,6 +273,7 @@
 			files = (
 				CE9439D22CB05BEF000E7442 /* MapView.swift in Sources */,
 				CEA088B92CB1A28F00F46A72 /* WindDetector.swift in Sources */,
+				CE8155C32CB370C900E48987 /* ApparentWind.swift in Sources */,
 				CE9439D02CB03A72000E7442 /* SailingDataCollector.swift in Sources */,
 				CEEC12D52CA939B7001D22B6 /* CompassView.swift in Sources */,
 				CE9439CD2CAFE915000E7442 /* LocationManager.swift in Sources */,

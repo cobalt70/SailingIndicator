@@ -13,6 +13,7 @@ struct CompassView: View {
     @EnvironmentObject private var locationManager : LocationManager
     @EnvironmentObject private var windDetector : WindDetector
     @State var showAlert : Bool = false
+    @EnvironmentObject var apparentWind :ApparentWind
     
     var body: some View {
         GeometryReader { geometry in
@@ -24,6 +25,8 @@ struct CompassView: View {
             let cy = geometry.size.width * 0.5
             let center = CGPoint(x: cx, y: cy)
             let r5 = geometry.size.width * 0.43
+            let r6 = geometry.size.width * 0.45
+            
             VStack{
                 ZStack {
                     // 나침반 원
@@ -104,14 +107,15 @@ struct CompassView: View {
                             .offset(x: x, y: -y)
                         
                         
-                    }.rotationEffect(Angle(degrees: (  -(locationManager.heading?.magneticHeading ?? 0))), anchor: .init(x: cx / geometry.size.width , y: cy / geometry.size.width ))
+                    }.rotationEffect(Angle(degrees: (  -(locationManager.heading?.trueHeading ?? 0))), anchor: .init(x: cx / geometry.size.width , y: cy / geometry.size.width ))
+                   // Wind direction draw
                     
                     let sfSymbolName = "location.north.fill"
                     if let direction = windDetector.direction , let speed = windDetector.speed {
-                        let angle = Angle(degrees: 90 - direction + (locationManager.heading?.magneticHeading ?? 0)) // 각도 계산
+                        let angle = Angle(degrees: 90 - direction + (locationManager.heading?.trueHeading ?? 0)) // 각도 계산
                         let x = r5 * cos(angle.radians) // x 좌표
                         let y = r5 * sin(angle.radians) // y 좌표
-                        let finalRotation = direction  - (locationManager.heading?.magneticHeading ?? 0)
+                        let finalRotation = direction  - (locationManager.heading?.trueHeading ?? 0)
                         
                         Image(systemName: sfSymbolName)
                             .rotationEffect(Angle(degrees: finalRotation + 180), anchor: .center)
@@ -119,8 +123,26 @@ struct CompassView: View {
                             .foregroundColor(.blue)
                             .position(x:cx, y:cy)
                             .offset(x: x, y: -y)
+                     // apparent wind direction draw // 근데 여기서 계산까지 해줘야 하나 아니면 다른데서??
+                     
+                    }
+                    
+                    if let direction = apparentWind.direction , let speed = apparentWind.speed {
                         
-                        
+                      
+                        let angle = Angle(degrees: 90 - direction + (locationManager.heading?.trueHeading ?? 0)) // 각도 계산
+                        let x = r6 * cos(angle.radians) // x 좌표
+                        let y = r6 * sin(angle.radians) // y 좌표
+                        let finalRotation = direction  - (locationManager.heading?.trueHeading ?? 0)
+                        //180 은  symbol 180도 자체 회전..
+                        Image(systemName: sfSymbolName)
+                            .rotationEffect(Angle(degrees: finalRotation + 180), anchor: .center)
+                            .frame(width: 10, height: 10) // 크기 지정
+                            .foregroundColor(.red)
+                            .position(x:cx, y:cy)
+                            .offset(x: x, y: -y)
+                     // apparent wind direction draw // 근데 여기서 계산까지 해줘야 하나 아니면 다른데서??
+                     
                     }
                     
                     
