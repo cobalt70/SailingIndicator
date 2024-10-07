@@ -41,8 +41,8 @@ class ApparentWind : ObservableObject {
 //            .store(in: &cancellables)
 //        
         
-        Publishers.CombineLatest3(windData.$timestamp, windData.$speed, windData.$direction)
-            .sink { [weak self] _ , _ , _  in 
+        Publishers.CombineLatest3(windData.$speed, windData.$direction, windData.locationManager.$heading)
+            .sink { [weak self] _ , _ , _  in
                 self?.calcApparentWind()
                        }
                        .store(in: &cancellables)
@@ -59,12 +59,12 @@ class ApparentWind : ObservableObject {
         }
         var boatSpeed =  windData.locationManager.speed < 0 ? 0 : windData.locationManager.speed
         
-        var boatCourse = windData.locationManager.course < 0 ? 0 : windData.locationManager.course
+        guard let boatHeading =  windData.locationManager.heading?.trueHeading else { return }
         
-        if boatCourse < 0 { boatSpeed = 0}
+        
      
         print("calcApparentWind from windSpeed: \(windSpeed) windDirection \(windDirection)")
-        print("calcApparentWind from boatSpeed: \(boatSpeed) boatDirection \(boatCourse)")
+        print("calcApparentWind from boatHeading:  \(boatSpeed) boatDirection \(boatHeading)")
         
         var windX : Double {
             let angle = Angle(degrees: 90 - windDirection)
@@ -78,12 +78,12 @@ class ApparentWind : ObservableObject {
         }
         
         var boatX : Double {
-            let angle = Angle(degrees: 90 - boatCourse)
+            let angle = Angle(degrees: 90 - boatHeading)
             return boatSpeed * cos(angle.radians)
         }
         
         var boatY : Double {
-            let angle = Angle(degrees: 90 - boatCourse)
+            let angle = Angle(degrees: 90 - boatHeading)
             return boatSpeed * sin(angle.radians)
         }
         
@@ -96,8 +96,9 @@ class ApparentWind : ObservableObject {
         }
         
         speed = sqrt(pow(apparentWindX,2) + pow(apparentWindY,2) )
+        
         if speed != 0 {
-            direction  =  360 -  acos(apparentWindY  / speed! ) * (180 / Double.pi)
+            direction  =  90 -  acos(apparentWindX  / speed! ) * (180 / Double.pi)
         } else
         {
             direction = windDirection

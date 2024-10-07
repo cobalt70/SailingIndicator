@@ -81,7 +81,7 @@ class SailAngleFind: ObservableObject {
         
         guard let boatHeading = apparentWind.windData.locationManager.heading?.trueHeading else { return }
         
-        if boatHeading < 0 { boatSpeed = 0}
+      
         
         print("calcSailAngle from windSpeed: \(windSpeed) windDirection \(windDirection)")
         print("calcSailAngle from boatSpeed: \(boatSpeed) boatDirection \(boatHeading)")
