@@ -4,23 +4,28 @@
 //
 //  Created by Gi Woo Kim on 9/30/24.
 //
-
+//
 import Foundation
 import SwiftUI
 
 struct BoatView: View{
-    
+    @StateObject var sailAngleFind = SailAngleFind()
+    @State private var sailAngle: Angle = .degrees(0)
+
     var body: some View {
+        // 여기서는 수학좌표계 사용하지 않고  frame 좌표계를 이용했음..간단한 도형이라..
         let lb1 = CGPoint(x:  0, y: -50)
-        let lb2 = CGPoint(x : -20, y: 0)
+        let lb2 = CGPoint(x : -20, y: -20)
         let lb3 = CGPoint(x:  -20, y: 0)
         let lb4 = CGPoint(x : -20, y: 50)
         
         let rb1 = CGPoint(x: 0, y: -50)
-        let rb2 = CGPoint(x : 20, y: 0)
+        let rb2 = CGPoint(x : 20, y: -20)
         let rb3 = CGPoint(x:  20, y: 0)
         let rb4 = CGPoint(x : 20, y: 50)
         
+        let mast = CGPoint(x: 0, y: -20)
+        let sailLength  = 80.0
         
         ZStack {
             
@@ -43,6 +48,24 @@ struct BoatView: View{
                 path.addLine(to: newrb4)
                 
             }.stroke(Color.black, lineWidth: 4)
+            
+            
+            
+            Path { path in
+                Task { @MainActor in
+                        sailAngle = Angle(degrees: 90 - (sailAngleFind.sailAngle ?? 0))
+                    }
+                    
+                let lx  =  sailLength * cos(sailAngle.radians) + 0
+                let ly =   sailLength * sin(sailAngle.radians) - 20
+                
+                let sailEnd = CGPoint(x: lx, y: ly)
+                path.move(to: sailEnd)
+                path.addLine(to: mast)
+                print("Current sailAngle: \(sailAngleFind.sailAngle ?? 0)")
+                
+            }.stroke(Color.blue, lineWidth: 4)
+              
         }
  }
 }
@@ -53,3 +76,6 @@ struct BoatView_Previews: PreviewProvider {
         BoatView()
     }
 }
+
+
+

@@ -1,0 +1,157 @@
+authorizedWhenInUse or authorizedAlways
+authorizedWhenInUse or authorizedAlways
+authorizedWhenInUse or authorizedAlways
+start collect data
+authorizedWhenInUse or authorizedAlways
+authorizedWhenInUse or authorizedAlways
+wind Data is not available
+NSBundle file:///System/Library/PrivateFrameworks/MetalTools.framework/ principal class is nil because all fallbacks have failed
+authorizedWhenInUse or authorizedAlways
+wind Data is not available
+wind Data is not available
+authorizedWhenInUse or authorizedAlways
+wind Data is not available
+wind Data is not available
+authorizedWhenInUse or authorizedAlways
+wind Data is not available
+wind Data is not available
+authorizedWhenInUse or authorizedAlways
+wind Data is not available
+wind Data is not available
+authorizedWhenInUse or authorizedAlways
+wind Data is not available
+wind Data is not available
+SailingData(id: 87907439-968B-4EF5-8CD7-2639FD3BAE50, timeStamp: 2024-10-07 10:49:56 +0000, windSpeed: 0.0, windDirection: nil, boatSpeed: -1.0, boatDirection: Optional(-1.0), latitude: 36.017459705269616, longitude: 129.32223394660278)
+Fectching wind in the disptach
+--- sombody called fetchCurrentWind from WeatherKit.WeatherService at <+37.52200000,+126.97600000> +/- 0.00m (speed -1.00 mps / course -1.00) @ 10/7/24, 7:49:44 PM Korean Standard Time --- over.
+
+Fectching wind in the disptach
+--- sombody called fetchCurrentWind from WeatherKit.WeatherService at <+37.52200000,+126.97600000> +/- 0.00m (speed -1.00 mps / course -1.00) @ 10/7/24, 7:49:44 PM Korean Standard Time --- over.
+
+Fectching wind in the disptach
+--- sombody called fetchCurrentWind from WeatherKit.WeatherService at <+37.52200000,+126.97600000> +/- 0.00m (speed -1.00 mps / course -1.00) @ 10/7/24, 7:49:44 PM Korean Standard Time --- over.
+
+Fectching wind in the disptach
+--- sombody called fetchCurrentWind from WeatherKit.WeatherService at <+37.52200000,+126.97600000> +/- 0.00m (speed -1.00 mps / course -1.00) @ 10/7/24, 7:49:45 PM Korean Standard Time --- over.
+
+Fectching wind in the disptach
+--- sombody called fetchCurrentWind from WeatherKit.WeatherService at <+37.52200000,+126.97600000> +/- 0.00m (speed -1.00 mps / course -1.00) @ 10/7/24, 7:49:45 PM Korean Standard Time --- over.
+
+Fectching wind in the disptach
+--- sombody called fetchCurrentWind from WeatherKit.WeatherService at <+37.52200000,+126.97600000> +/- 0.00m (speed -1.00 mps / course -1.00) @ 10/7/24, 7:49:46 PM Korean Standard Time --- over.
+
+MapView coordinagtes transferred : [__C.CLLocationCoordinate2D(latitude: 36.017459705269616, longitude: 129.32223394660278)]
+vm.sailingdata array changed : 1
+CLLocationManager(<CLLocationManager: 0x301374cd0>) for <MKCoreLocationProvider: 0x302304ab0> did fail with error: Error Domain=kCLErrorDomain Code=0 "(null)"
+timestamp : 2024-10-07 10:50:07 +0000
+Current wind speed: 3.347721576690674 m/s
+Current wind direction: 262.0°
+timestamp : 2024-10-07 10:50:07 +0000
+Current wind speed: 3.347721576690674 m/s
+Current wind direction: 262.0°
+timestamp : 2024-10-07 10:50:07 +0000
+Current wind speed: 3.347721576690674 m/s
+Current wind direction: 262.0°
+timestamp : 2024-10-07 10:50:07 +0000
+Current wind speed: 3.347721576690674 m/s
+Current wind direction: 262.0°
+wind Data is not available
+wind Data is not available
+wind Data is not available
+timestamp : 2024-10-07 10:50:07 +0000
+Current wind speed: 3.347721576690674 m/s
+Current wind direction: 262.0°
+timestamp : 2024-10-07 10:50:07 +0000
+Current wind speed: 3.347721576690674 m/s
+Current wind direction: 262.0°
+authorizedWhenInUse or authorizedAlways
+wind Data is not available
+wind Data is not available
+authorizedWhenInUse or authorizedAlways
+wind Data is not available
+wind Data is not available
+Fectching wind in the disptach
+--- sombody called fetchCurrentWind from WeatherKit.WeatherService at <+37.52200000,+126.97600000> +/- 0.00m (speed -1.00 mps / course -1.00) @ 10/7/24, 7:49:54 PM Korean Standard Time --- over.
+
+timestamp : 2024-10-07 10:50:10 +0000
+Current wind speed: 3.347721576690674 m/s
+Current wind direction: 262.0°
+Fectching wind in the disptach
+--- sombody called fetchCurrentWind from WeatherKit.WeatherService at <+37.52200000,+126.97600000> +/- 0.00m (speed -1.00 mps / course -1.00) @ 10/7/24, 7:49:59 PM Korean Standard Time --- over.
+
+timestamp : 2024-10-07 10:50:14 +0000
+Current wind speed: 3.347721576690674 m/s
+Current wind direction: 262.0°
+Fectching wind in the disptach
+--- sombody called fetchCurrentWind from WeatherKit.WeatherService at <+37.52200000,+126.97600000> +/- 0.00m (speed -1.00 mps / course -1.00) @ 10/7/24, 7:50:07 PM Korean Standard Time --- over.
+
+timestamp : 2024-10-07 10:50:23 +0000
+Current wind speed: 3.347721576690674 m/s
+Current wind direction: 262.0°
+Fectching wind in the disptach
+--- sombody called fetchCurrentWind from WeatherKit.WeatherService at <+37.52200000,+126.97600000> +/- 0.00m (speed -1.00 mps / course -1.00) @ 10/7/24, 7:50:08 PM Korean Standard Time --- over.
+
+wind Data is not available
+wind Data is not available
+wind Data is not available
+timestamp : 2024-10-07 10:50:23 +0000
+Current wind speed: 3.347721576690674 m/s
+Current wind direction: 262.0°
+tcp_input [C1.1.15:3] flags=[R.] seq=4061079296, ack=4024196788, win=501 state=CLOSED rcv_nxt=4061079272, snd_una=4024196787
+Fectching wind in the timer
+--- sombody called fetchCurrentWind from WeatherKit.WeatherService at <+37.52200000,+126.97600000> +/- 0.00m (speed -1.00 mps / course -1.00) @ 10/7/24, 7:49:44 PM Korean Standard Time --- over.
+
+SailingData(id: 6880C0AF-DBE5-4CCD-925B-129C9AF878CC, timeStamp: 2024-10-07 10:50:44 +0000, windSpeed: 3.347721576690674, windDirection: Optional(262.0), boatSpeed: -1.0, boatDirection: Optional(-1.0), latitude: 36.01743361212265, longitude: 129.32217663928571)
+Fectching wind in the timer
+--- sombody called fetchCurrentWind from WeatherKit.WeatherService at <+37.52200000,+126.97600000> +/- 0.00m (speed -1.00 mps / course -1.00) @ 10/7/24, 7:49:44 PM Korean Standard Time --- over.
+
+Fectching wind in the timer
+--- sombody called fetchCurrentWind from WeatherKit.WeatherService at <+37.52200000,+126.97600000> +/- 0.00m (speed -1.00 mps / course -1.00) @ 10/7/24, 7:49:44 PM Korean Standard Time --- over.
+
+MapView coordinagtes transferred : [__C.CLLocationCoordinate2D(latitude: 36.017459705269616, longitude: 129.32223394660278), __C.CLLocationCoordinate2D(latitude: 36.01743361212265, longitude: 129.32217663928571)]
+vm.sailingdata array changed : 2
+timestamp : 2024-10-07 10:50:44 +0000
+Current wind speed: 3.347721576690674 m/s
+Current wind direction: 262.0°
+timestamp : 2024-10-07 10:50:44 +0000
+Current wind speed: 3.347721576690674 m/s
+Current wind direction: 262.0°
+authorizedWhenInUse or authorizedAlways
+wind Data is not available
+wind Data is not available
+calcApparentWind from windSpeed: 3.347721576690674 windDirection 262.0
+calcApparentWind from boatSpeed: 0.0 boatDirection 0.0
+windx -3.3151417804339585 windy -0.4659127929789602
+apparent wind speed 3.347721576690674
+apparent wind direction d: 262.0  s:3.347721576690674 x: -3.3151417804339585 y: -0.4659127929789602
+calcApparentWind from windSpeed: 3.347721576690674 windDirection 262.0
+calcApparentWind from boatSpeed: 0.0 boatDirection 0.0
+windx -3.3151417804339585 windy -0.4659127929789602
+apparent wind speed 3.347721576690674
+apparent wind direction d: 262.0  s:3.347721576690674 x: -3.3151417804339585 y: -0.4659127929789602
+calcApparentWind from windSpeed: 3.347721576690674 windDirection 262.0
+calcApparentWind from boatSpeed: 0.0 boatDirection 0.0
+windx -3.3151417804339585 windy -0.4659127929789602
+apparent wind speed 3.347721576690674
+apparent wind direction d: 262.0  s:3.347721576690674 x: -3.3151417804339585 y: -0.4659127929789602
+timestamp : 2024-10-07 10:50:44 +0000
+Current wind speed: 3.347721576690674 m/s
+Current wind direction: 262.0°
+authorizedWhenInUse or authorizedAlways
+wind Data is not available
+wind Data is not available
+Fectching wind in the disptach
+--- sombody called fetchCurrentWind from WeatherKit.WeatherService at <+37.52200000,+126.97600000> +/- 0.00m (speed -1.00 mps / course -1.00) @ 10/7/24, 7:50:44 PM Korean Standard Time --- over.
+
+Fectching wind in the disptach
+--- sombody called fetchCurrentWind from WeatherKit.WeatherService at <+37.52200000,+126.97600000> +/- 0.00m (speed -1.00 mps / course -1.00) @ 10/7/24, 7:50:44 PM Korean Standard Time --- over.
+
+timestamp : 2024-10-07 10:51:00 +0000
+Current wind speed: 3.347721576690674 m/s
+Current wind direction: 262.0°
+wind Data is not available
+wind Data is not available
+wind Data is not available
+timestamp : 2024-10-07 10:51:00 +0000
+Current wind speed: 3.347721576690674 m/s
+Current wind direction: 262.0°

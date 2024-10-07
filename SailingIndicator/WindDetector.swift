@@ -27,7 +27,7 @@ class WindDetector : ObservableObject{
     @Published var timestamp :Date?
     @Published var direction: Double?
     @Published var speed: Double?
-
+   
     
         
     var timer: AnyCancellable?

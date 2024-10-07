@@ -10,6 +10,8 @@
 		CE0057882CAA45290019DEFF /* BoatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0057872CAA45290019DEFF /* BoatView.swift */; };
 		CE6DBA122CB2CB5000525B4A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6DBA112CB2CB5000525B4A /* StoreKit.framework */; };
 		CE8155C32CB370C900E48987 /* ApparentWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8155C22CB370B200E48987 /* ApparentWind.swift */; };
+		CE8156632CB3E47800E48987 /* SailAngleFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8156622CB3E47000E48987 /* SailAngleFind.swift */; };
+		CE8156652CB3F4CD00E48987 /* result.txgt in Resources */ = {isa = PBXBuildFile; fileRef = CE8156642CB3F4BA00E48987 /* result.txgt */; };
 		CE9439CD2CAFE915000E7442 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9439CC2CAFE915000E7442 /* LocationManager.swift */; };
 		CE9439D02CB03A72000E7442 /* SailingDataCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9439CF2CB03A70000E7442 /* SailingDataCollector.swift */; };
 		CE9439D22CB05BEF000E7442 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9439D12CB05BE6000E7442 /* MapView.swift */; };
@@ -43,6 +45,8 @@
 		CE5F23E12CB1C56900D5D1F7 /* WeatherKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WeatherKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/WeatherKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE6DBA112CB2CB5000525B4A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CE8155C22CB370B200E48987 /* ApparentWind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApparentWind.swift; sourceTree = "<group>"; };
+		CE8156622CB3E47000E48987 /* SailAngleFind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SailAngleFind.swift; sourceTree = "<group>"; };
+		CE8156642CB3F4BA00E48987 /* result.txgt */ = {isa = PBXFileReference; lastKnownFileType = text; path = result.txgt; sourceTree = "<group>"; };
 		CE9439CC2CAFE915000E7442 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		CE9439CE2CAFEDB8000E7442 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CE9439CF2CB03A70000E7442 /* SailingDataCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SailingDataCollector.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 				CEA088B82CB1A28600F46A72 /* WindDetector.swift */,
 				CE8155C22CB370B200E48987 /* ApparentWind.swift */,
 				CE0057872CAA45290019DEFF /* BoatView.swift */,
+				CE8156622CB3E47000E48987 /* SailAngleFind.swift */,
+				CE8156642CB3F4BA00E48987 /* result.txgt */,
 				CEEC12AD2CA9398E001D22B6 /* Assets.xcassets */,
 				CEEC12AF2CA9398E001D22B6 /* SailingIndicator.entitlements */,
 				CEEC12B02CA9398E001D22B6 /* Preview Content */,
@@ -246,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEEC12B22CA9398E001D22B6 /* Preview Assets.xcassets in Resources */,
+				CE8156652CB3F4CD00E48987 /* result.txgt in Resources */,
 				CEEC12AE2CA9398E001D22B6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +284,7 @@
 				CE9439D02CB03A72000E7442 /* SailingDataCollector.swift in Sources */,
 				CEEC12D52CA939B7001D22B6 /* CompassView.swift in Sources */,
 				CE9439CD2CAFE915000E7442 /* LocationManager.swift in Sources */,
+				CE8156632CB3E47800E48987 /* SailAngleFind.swift in Sources */,
 				CEEC12AC2CA9398C001D22B6 /* ContentView.swift in Sources */,
 				CE0057882CAA45290019DEFF /* BoatView.swift in Sources */,
 				CEEC12AA2CA9398C001D22B6 /* SailingIndicatorApp.swift in Sources */,
