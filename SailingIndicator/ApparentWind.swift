@@ -12,15 +12,17 @@ import SwiftUI
 
 
 class ApparentWind : ObservableObject {
-     
+    static let shared =  ApparentWind()
+    
     @Published  var direction: Double? = nil
     @Published  var speed:  Double? = nil
     // 나중에  singleton으로  static 변수 하나만 선언해서  한번 선언되면 그것을 가져오는 식으로 수정..==> Singleton
     // windDetector 안에 locationManager가 있음
-    @ObservedObject var windData = WindDetector()
+    // @ObservedObject var windData = WindDetector()
+    let windData = WindDetector.shared
     
     var cancellables: Set<AnyCancellable> = []
- 
+    
     init()
     {
         startCollectingData()

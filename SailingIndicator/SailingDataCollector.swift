@@ -24,9 +24,14 @@ struct SailingData : Equatable, Identifiable{
 }
 
 class SailingDataCollector : ObservableObject {
+    static let shared = SailingDataCollector()
+
     @Published var sailingDataArray: [SailingData] = []
-    @ObservedObject var locationManager = LocationManager()
-    @ObservedObject var windData = WindDetector()
+//    @ObservedObject var locationManager = LocationManager()
+//    @ObservedObject var windData = WindDetector()
+    let locationManager = LocationManager.shared
+    let windData = WindDetector.shared
+    
     // EnvironmentObject를 사용하는것과 어떻게 다르지?? 항상 햇갈림
     // 모델 vs 모델 인경우  파라메터로 주입시키고 값을 가져다쓰는 방식을 써봄
     //보통 뷰모델일때 @ObservedObject나 @EnvironmentObject를 사용하니까 일단 피함

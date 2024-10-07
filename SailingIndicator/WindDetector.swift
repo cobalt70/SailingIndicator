@@ -20,8 +20,10 @@ struct WindData  {
 
 
 class WindDetector : ObservableObject{
-
-    @ObservedObject var locationManager = LocationManager()
+    static let shared = WindDetector()
+    
+//    @ObservedObject var locationManager = LocationManager()  
+    let  locationManager = LocationManager.shared
     
     @Published var currentWind: WindData?
     @Published var timestamp :Date?

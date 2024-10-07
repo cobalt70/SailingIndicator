@@ -24,7 +24,9 @@ class SailAngleFind: ObservableObject {
     
     @Published  var sailAngle: Double?
     @Published var sailingPoint : [SailingPoint]?
-    @ObservedObject var  apparentWind = ApparentWind()
+//    @ObservedObject var  apparentWind = ApparentWind()
+    
+    let apparentWind = ApparentWind.shared
     
     var previousSpeed  : Double = 0
     var previousDirection : Double = 0
@@ -91,8 +93,8 @@ class SailAngleFind: ObservableObject {
         return
         }
         
-        let relativeWindDirection =  windDirection - boatHeading
-        let relativeApparentWindDirection  = apparentWindDirection  - boatHeading
+        var relativeWindDirection =  windDirection - boatHeading
+        var relativeApparentWindDirection  = apparentWindDirection  - boatHeading
         
         // 왼쪽방향을 넘어서면 오른쪽 방향에서 계싼
         if relativeWindDirection <  -180 {

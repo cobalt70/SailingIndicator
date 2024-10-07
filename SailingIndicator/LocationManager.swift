@@ -9,6 +9,7 @@ import CoreLocation
 import Combine
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+    static let shared = LocationManager() // Singleton instance
     var locationManager = CLLocationManager()
     
     @Published var speed: CLLocationSpeed = 0.0 // 속도 (m/s)

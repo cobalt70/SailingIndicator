@@ -10,9 +10,13 @@ import SwiftUI
 
 
 struct CompassView: View {
-    @EnvironmentObject private var locationManager : LocationManager
-    @EnvironmentObject private var windDetector : WindDetector
+// View에서는  Sigleton 썼더니 화면이 업데이트가 안되서 다시 원복.
     @State var showAlert : Bool = false
+    @EnvironmentObject private var locationManager : LocationManager
+    
+//    let locationManager = LocationManager.shared
+    @EnvironmentObject private var windDetector : WindDetector
+ 
     @EnvironmentObject var apparentWind :ApparentWind
     
     var body: some View {
