@@ -12,7 +12,7 @@ struct ContentView: View {
     @StateObject var sailingDataCollector = SailingDataCollector()
     @StateObject var windDetector = WindDetector()
     @StateObject var apparentWind = ApparentWind()
-    
+    @StateObject var sailAngleFind = SailAngleFind()
     var body: some View {
         ScrollView(.vertical) {
             VStack{
@@ -20,13 +20,14 @@ struct ContentView: View {
                     .environmentObject(locationManager)
                     .environmentObject(windDetector)
                     .environmentObject(apparentWind)
-                
+                    .environmentObject(sailAngleFind)
             }
             
             VStack{
                 MapView()
                     .environmentObject(sailingDataCollector)
                     .environmentObject(locationManager)
+                    
                     .offset(x:0, y: 320)
                 
             }
@@ -35,7 +36,7 @@ struct ContentView: View {
                 
                 VStack(alignment: .center) {
                     if locationManager.speed >= 0 {
-                        Text("boat Speed: \(locationManager.speed, specifier: "%.2f") m/s")
+                        Text("assume boat Speed: \(locationManager.speed, specifier: "%.2f") m/s")
                         .font(.caption2)}
                     else {
                         Text("Getting boat speed...")

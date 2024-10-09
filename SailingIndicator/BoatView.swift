@@ -9,9 +9,8 @@ import Foundation
 import SwiftUI
 
 struct BoatView: View{
-    @StateObject var sailAngleFind = SailAngleFind()
     @State private var sailAngle: Angle = .degrees(0)
-
+    @EnvironmentObject private var sailAngleFind : SailAngleFind
     var body: some View {
         // 여기서는 수학좌표계 사용하지 않고  frame 좌표계를 이용했음..간단한 도형이라..
         let lb1 = CGPoint(x:  0, y: -50)
@@ -25,7 +24,7 @@ struct BoatView: View{
         let rb4 = CGPoint(x : 20, y: 50)
         
         let mast = CGPoint(x: 0, y: -20)
-        let sailLength  = 80.0
+        let sailLength  = 70.0
         
         ZStack {
             

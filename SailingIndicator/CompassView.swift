@@ -13,11 +13,9 @@ struct CompassView: View {
 // View에서는  Sigleton 썼더니 화면이 업데이트가 안되서 다시 원복.
     @State var showAlert : Bool = false
     @EnvironmentObject private var locationManager : LocationManager
-    
-//    let locationManager = LocationManager.shared
     @EnvironmentObject private var windDetector : WindDetector
- 
     @EnvironmentObject var apparentWind :ApparentWind
+    @EnvironmentObject private var sailAngleFind : SailAngleFind
     
     var body: some View {
         GeometryReader { geometry in
@@ -156,6 +154,8 @@ struct CompassView: View {
                 }.frame(width: geometry.size.width, height: geometry.size.width )
                     .overlay{
                         BoatView().offset(x: cx, y: cy)
+                            .environmentObject(sailAngleFind)
+                            
                     }
                 
                 

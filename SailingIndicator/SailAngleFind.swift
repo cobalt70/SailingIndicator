@@ -32,6 +32,7 @@ class SailAngleFind: ObservableObject {
     var previousDirection : Double = 0
     var previousHeading : CLLocationDegrees = 0
     var cancellables: Set<AnyCancellable> = []
+    static let shared = SailAngleFind() // Singleton instance
     
     init() {
         
