@@ -35,26 +35,26 @@ struct ContentView: View {
                 
                 VStack(alignment: .center) {
                     if locationManager.speed >= 0 {
-                        Text("Speed: \(locationManager.speed, specifier: "%.2f") m/s")
+                        Text("boat Speed: \(locationManager.speed, specifier: "%.2f") m/s")
                         .font(.caption2)}
                     else {
-                        Text("Getting speed...")
+                        Text("Getting boat speed...")
                             .font(.caption2)
                     }
                     if locationManager.course >= 0 {
-                        Text("Course: \(locationManager.course, specifier: "%.2f")º")
+                        Text("Boat course: \(locationManager.course, specifier: "%.2f")º")
                             .font(.caption2)
                     }
                     else {
-                        Text("Getting course...")
+                        Text("Getting boat course...")
                             .font(.caption2)
                     }
                     
                     if let heading = locationManager.heading {
-                        Text("Heading: m:\(heading.magneticHeading, specifier: "%.2f")º t:\(heading.trueHeading, specifier: "%.2f")º")
+                        Text("Boat Heading: m:\(heading.magneticHeading, specifier: "%.2f")º t:\(heading.trueHeading, specifier: "%.2f")º")
                             .font(.caption2)
                     } else {
-                        Text("Getting Heading...")
+                        Text("Getting Boat Heading...")
                             .font(.caption2)
                     }
                     
@@ -81,7 +81,7 @@ struct ContentView: View {
                         
                     }
                     else {
-                        Text("Getting location...")
+                        Text("Getting Wind location...")
                             .font(.caption2)
                     }
                 }

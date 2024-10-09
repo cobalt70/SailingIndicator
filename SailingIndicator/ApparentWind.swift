@@ -53,22 +53,22 @@ class ApparentWind : ObservableObject {
     func calcApparentWind(){
         
         guard let windSpeed = windData.speed,
-           let windDirection  = windData.direction  else {
-            print("wind Data is not available")
+              let windDirection  = windData.direction  else {
+            print("wind Data is not available in calcApparentWind")
             return
         }
-        var boatSpeed =  windData.locationManager.speed < 0 ? 0 : windData.locationManager.speed
+        let boatSpeed =  windData.locationManager.speed < 0 ? 0 : windData.locationManager.speed
         
         guard let boatHeading =  windData.locationManager.heading?.trueHeading else { return }
         
         
-     
+        
         print("calcApparentWind from windSpeed: \(windSpeed) windDirection \(windDirection)")
         print("calcApparentWind from boatHeading:  \(boatSpeed) boatDirection \(boatHeading)")
         
         var windX : Double {
             let angle = Angle(degrees: 90 - windDirection)
-                              
+            
             return  windSpeed  * cos( angle.radians )
         }
         
@@ -88,27 +88,37 @@ class ApparentWind : ObservableObject {
         }
         
         var apparentWindX : Double  {
-           return  windX + boatX
+            return  windX + boatX
         }
         
         var apparentWindY : Double  {
-           return  windY + boatY
+            return  windY + boatY
         }
         
         speed = sqrt(pow(apparentWindX,2) + pow(apparentWindY,2) )
         
         if speed != 0 {
-            direction  =  90 -  acos(apparentWindX  / speed! ) * (180 / Double.pi)
+            direction =  calculateThetaY(x: apparentWindX, y: apparentWindY)   // caclcuateTheta from Y axis   atan(x over  y) 임
         } else
         {
             direction = windDirection
+              
         }
+        print("atan(1,  1) \( atan2( 1, 1) * (180 / Double.pi) )")
+        print("atan(1, -1) \( atan2( 1, -1) * (180 / Double.pi) )")
+        print("atan(-1, -1) \( atan2( -1, -1) * (180 / Double.pi) )")
+        print("atan(-1, 1) \( atan2( -1, 1) * (180 / Double.pi) )")
         
         print("windx \(windX) windy \(windY)")
         print("apparent wind speed \(speed!)")
         print("apparent wind direction d: \(direction!)  s:\(speed!) x: \(apparentWindX) y: \(apparentWindY)")
     }
     
+    func calculateThetaY(x: Double, y: Double) -> Double {
+        let theta = atan2(x, y) * (180 / .pi) // y축에 대한 각도 계산
+        return theta < 0 ? theta + 360 : theta // 음수 각도를 양수로 변환
+    }
+
 }
 
 

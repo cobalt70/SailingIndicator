@@ -116,6 +116,7 @@ struct CompassView: View {
                     
                     let sfSymbolName = "location.north.fill"
                     if let direction = windDetector.direction , let speed = windDetector.speed {
+                        
                         let angle = Angle(degrees: 90 - direction + (locationManager.heading?.trueHeading ?? 0)) // 각도 계산
                         let x = r5 * cos(angle.radians) // x 좌표
                         let y = r5 * sin(angle.radians) // y 좌표

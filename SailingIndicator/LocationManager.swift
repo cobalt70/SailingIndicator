@@ -60,7 +60,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             DispatchQueue.main.async {
-                self.speed = location.speed
+                // 계산의 편의상  속도가 1m/sec 이하면 1이라고 라고 가정했음..
+                // location.course 가 값을 갖지 않는경우는 추후라도  location.heading 값으로 대체할것임.
+                self.speed = location.speed <= 4 ? 4 : location.speed
                 self.course = location.course
                 self.latitude = location.coordinate.latitude
                 self.longitude  = location.coordinate.longitude
