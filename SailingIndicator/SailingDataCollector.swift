@@ -18,7 +18,7 @@ struct SailingData : Equatable, Identifiable{
     var windDirection: Double?  //deg
     var boatSpeed: Double  // m/s
     var boatDirection: Double? // deg
-    
+    var boatHeading : Double?
     var latitude: Double //deg
     var longitude: Double //deg
 }
@@ -61,9 +61,10 @@ class SailingDataCollector : ObservableObject {
     func collectSailingData(locationManager: LocationManager) {
         let currentTime = Date()
         let windSpeed = windData.speed ?? 0
-        let windDirection = windData.direction 
+        let windDirection = windData.direction
         let boatSpeed =  locationManager.speed
         let boatDirection = locationManager.course
+        let boatHeading = locationManager.heading?.trueHeading
         let latitude = locationManager.latitude
         let longitude = locationManager.longitude
 
@@ -72,7 +73,9 @@ class SailingDataCollector : ObservableObject {
                                       windSpeed: windSpeed,
                                       windDirection: windDirection,
                                       boatSpeed: boatSpeed,
-                                      boatDirection: boatDirection, latitude: latitude, longitude: longitude )
+                                      boatDirection: boatDirection,
+                                      boatHeading : boatHeading,
+                                      latitude: latitude, longitude: longitude )
         DispatchQueue.main.async {
         
             self.sailingDataArray.append(sailingData)

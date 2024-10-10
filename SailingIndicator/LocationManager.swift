@@ -4,6 +4,9 @@
 //
 //  Created by Giwoo Kim on 10/4/24.
 //
+// 현재는 locationManager가 정보가 업데이트만 되면 계속 호출되는데 이것은 리소스 낭비가 됨
+// 추후에는 필요할때만 locationManager => True Wind update => ApparentWindUpdate => SailingAngleUpdate => SailingDataCollector
+// 이순서대로 한번씩만 실행되게 하면 좀더 효율적으로 작동할것임.
 
 import CoreLocation
 import Combine
@@ -20,7 +23,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var showAlert : Bool = false
     @Published var  lastLocation: CLLocation?
 
-    let distanceFilter = 5.0
+    let distanceFilter = 3.0
     let headingFilter  = 1.0
     
         
@@ -62,7 +65,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             DispatchQueue.main.async {
                 // 계산의 편의상  속도가 4m/sec 이하면 4m/sec이라고 라고 가정했음..
                 // location.course 가 값을 갖지 않는경우는 추후라도  location.heading 값으로 대체할것임.
-                self.speed = location.speed <= 4 ? 4 : location.speed
+                self.speed = location.speed 
                 self.course = location.course
               
                 self.latitude = location.coordinate.latitude

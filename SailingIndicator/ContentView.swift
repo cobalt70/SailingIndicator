@@ -36,10 +36,10 @@ struct ContentView: View {
                 
                 VStack(alignment: .center) {
                     if locationManager.speed >= 0 {
-                        Text("assume boat Speed: \(locationManager.speed, specifier: "%.2f") m/s")
+                        Text("boat Speed: \(locationManager.speed, specifier: "%.2f") m/s")
                         .font(.caption2)}
                     else {
-                        Text("Getting boat speed...")
+                        Text("Boat doesn't move")
                             .font(.caption2)
                     }
                     if locationManager.course >= 0 {
@@ -47,7 +47,7 @@ struct ContentView: View {
                             .font(.caption2)
                     }
                     else {
-                        Text("Getting boat course...")
+                        Text("boat doesn't move")
                             .font(.caption2)
                     }
                     

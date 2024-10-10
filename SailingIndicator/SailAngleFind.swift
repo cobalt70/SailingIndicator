@@ -119,33 +119,33 @@ class SailAngleFind: ObservableObject {
             sailingPoint = [.noGoZone]
             sailAngle = 0
             
-            print("sailAngle between -40 and -40 r:\(relativeWindDirection) s: \(sailAngle)  a: \(relativeApparentWindDirection)")
+            print("sailAngle between -40 and -40 r:\(relativeWindDirection) s: \(String(describing: sailAngle))  a: \(relativeApparentWindDirection)")
             
         } else if (relativeWindDirection < -40  && relativeWindDirection > -120) {
             print(".closehauled, .beamReach, .broadReach")
             sailingPoint = [.closehauled, .beamReach, .broadReach]
-            sailAngle =  -(relativeApparentWindDirection ?? 0)
-            print("sailAngle between -40 and -120 r:\(relativeWindDirection) s: \(sailAngle)  a: \(relativeApparentWindDirection)")
+            sailAngle =  -(relativeApparentWindDirection)
+            print("sailAngle between -40 and -120 r:\(relativeWindDirection) s: \(String(describing: sailAngle))  a: \(relativeApparentWindDirection)")
             
             
         } else if (relativeWindDirection > 40  && relativeWindDirection < 120) {
             print(".closehauled, .beamReach, .broadReach")
             sailingPoint = [.closehauled, .beamReach, .broadReach]
-            sailAngle = -(relativeApparentWindDirection ?? 0) //check apparentWindDirection 90도 이하인지 체크
-            print("sailAngle between 40 and 130 r:\(relativeWindDirection) s: \(sailAngle) a: \(relativeApparentWindDirection)")
+            sailAngle = -(relativeApparentWindDirection) //check apparentWindDirection 90도 이하인지 체크
+            print("sailAngle between 40 and 130 r:\(relativeWindDirection) s: \(String(describing: sailAngle)) a: \(relativeApparentWindDirection)")
         }
         else if relativeWindDirection > 120  {
             // 뒷바람 ..sailAngle은 90도
             print("downWind")
             sailingPoint = [.downwind]
             sailAngle = -90
-            print("downWind > 145 SailAngle r:\(relativeWindDirection)  s:\(sailAngle) a:\(relativeApparentWindDirection)")
+            print("downWind > 145 SailAngle r:\(relativeWindDirection)  s:\(String(describing: sailAngle)) a:\(relativeApparentWindDirection)")
         }
         else if relativeWindDirection < -120 {
             print("downWind")
             sailingPoint = [.downwind]
             sailAngle = 90
-            print("downWind < -120 SailAngle r:\(relativeWindDirection) s:\(sailAngle) a:\(relativeApparentWindDirection)")
+            print("downWind < -120 SailAngle r:\(relativeWindDirection) s:\(String(describing: sailAngle)) a:\(relativeApparentWindDirection)")
         }
         
     }

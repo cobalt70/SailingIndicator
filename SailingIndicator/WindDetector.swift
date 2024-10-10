@@ -51,7 +51,7 @@ class WindDetector : ObservableObject{
             }
         }
         
-        timer =  Timer.publish(every: 60 * 10, on: .main, in: .common)
+        timer =  Timer.publish(every: 60 * 5, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
                 Task { [weak self] in
@@ -64,6 +64,7 @@ class WindDetector : ObservableObject{
     }
     
     func fetchCurrentWind(for location: CLLocation) async  {
+        // WeatherService에도  Singleton 으로 인스턴스를 만드는  shared 변수가 있음.
         let weatherService =  WeatherService.shared
         let location = location
         print("--- sombody called fetchCurrentWind from \(weatherService) at \(location) --- over.\n")
@@ -75,6 +76,7 @@ class WindDetector : ObservableObject{
                 let weather = try await weatherService.weather(for: location)
             
                 let currentWind = weather.currentWeather.wind
+                let currentWindCompassDirection = weather.currentWeather.wind.compassDirection
                 
                 // @Published 는  UI와 관련이있으므로 main thread를 사용해서  update 해줘야 한다고 봄.
                 DispatchQueue.main.async {
@@ -85,8 +87,9 @@ class WindDetector : ObservableObject{
                     self.direction = currentWind.direction.value
                     self.speed = currentWind.speed.value
                     print("timestamp : \(self.timestamp!)")
+                    print("location lat: \(location.coordinate.latitude) long:\(location.coordinate.longitude)")
                     print("Current wind speed: \(currentWind.speed.value) m/s")
-                    print("Current wind direction: \(currentWind.direction.value)°")
+                    print("Current wind direction: \(currentWind.direction.value)°  compassDirection: \(currentWindCompassDirection.rawValue)")
                 }
                 
                 

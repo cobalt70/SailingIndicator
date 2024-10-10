@@ -19,8 +19,8 @@ class ApparentWind : ObservableObject {
     // 나중에  singleton으로  static 변수 하나만 선언해서  한번 선언되면 그것을 가져오는 식으로 수정..==> Singleton
     // windDetector 안에 locationManager가 있음
     // @ObservedObject var windData = WindDetector()
-    let windData = WindDetector.shared
     
+    let windData = WindDetector.shared
     var cancellables: Set<AnyCancellable> = []
     
     init()
@@ -43,6 +43,7 @@ class ApparentWind : ObservableObject {
 
         
         Publishers.CombineLatest3(windData.$speed, windData.$direction, windData.locationManager.$heading)
+            .throttle(for: .milliseconds(500), scheduler: RunLoop.main, latest: true)
             .sink { [weak self] _ , _ , _  in
                 self?.calcApparentWind()
                        }
@@ -58,14 +59,14 @@ class ApparentWind : ObservableObject {
             print("wind Data is not available in calcApparentWind")
             return
         }
-        let boatSpeed =  windData.locationManager.speed < 0 ? 0 : windData.locationManager.speed
+        let boatSpeed =  windData.locationManager.speed <  windSpeed * 0.5 ? windSpeed * 0.5 : windData.locationManager.speed
         
         guard let boatHeading =  windData.locationManager.heading?.trueHeading else { return }
         
         
         
         print("calcApparentWind from windSpeed: \(windSpeed) windDirection \(windDirection)")
-        print("calcApparentWind from boatHeading:  \(boatSpeed) boatDirection \(boatHeading)")
+        print("calcApparentWind from boatHeading:  \(boatSpeed) boatHeading\(boatHeading)")
         
         var windX : Double {
             let angle = Angle(degrees: 90 - windDirection)
@@ -105,14 +106,14 @@ class ApparentWind : ObservableObject {
             direction = windDirection
               
         }
-        print("atan(1,  1) \( atan2( 1, 1) * (180 / Double.pi) )")
-        print("atan(1, -1) \( atan2( 1, -1) * (180 / Double.pi) )")
-        print("atan(-1, -1) \( atan2( -1, -1) * (180 / Double.pi) )")
-        print("atan(-1, 1) \( atan2( -1, 1) * (180 / Double.pi) )")
-        
+//        print("atan(1,  1) \( atan2( 1, 1) * (180 / Double.pi) )")
+//        print("atan(1, -1) \( atan2( 1, -1) * (180 / Double.pi) )")
+//        print("atan(-1, -1) \( atan2( -1, -1) * (180 / Double.pi) )")
+//        print("atan(-1, 1) \( atan2( -1, 1) * (180 / Double.pi) )")
+       
         print("windx \(windX) windy \(windY)")
         print("apparent wind speed \(speed!)")
-        print("apparent wind direction d: \(direction!)  s:\(speed!) x: \(apparentWindX) y: \(apparentWindY)")
+        print("apparent wind direction dir: \(direction!)  spd:\(speed!) ax: \(apparentWindX) ay: \(apparentWindY)")
     }
     func calculateThetaY(x: Double, y: Double) -> Double {
         let theta = atan2(x, y) * (180 / .pi) // y축에 대한 각도 계산

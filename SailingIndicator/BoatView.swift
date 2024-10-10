@@ -5,6 +5,8 @@
 //  Created by Gi Woo Kim on 9/30/24.
 //
 //
+// 여기서는 수학좌표계 사용하지 않고  frame 좌표계를 이용했음
+// 햇갈리기 쉬운데 다시 직교좌표계로 하고 변환해줘야 하는가???
 import Foundation
 import SwiftUI
 
@@ -48,15 +50,16 @@ struct BoatView: View{
                 
             }.stroke(Color.black, lineWidth: 4)
             
-            
+            // StarBoard 오른쪽 방향은 가운데를 중심으로 0 ~90
+            // Port 왼쪽 방향 가운데를 중심으로  0~ -90
             
             Path { path in
                 Task { @MainActor in
-                        sailAngle = Angle(degrees: 90 - (sailAngleFind.sailAngle ?? 0))
+                        sailAngle = Angle(degrees: (sailAngleFind.sailAngle ?? 0))
                     }
                     
-                let lx  =  sailLength * cos(sailAngle.radians) + 0
-                let ly =   sailLength * sin(sailAngle.radians) - 20
+                let lx  =  sailLength * sin(sailAngle.radians) + 0
+                let ly =   sailLength * cos(sailAngle.radians) - 20
                 
                 let sailEnd = CGPoint(x: lx, y: ly)
                 path.move(to: sailEnd)
