@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var locationManager = LocationManager()
-    @StateObject var sailingDataCollector = SailingDataCollector()
     @StateObject var windDetector = WindDetector()
     @StateObject var apparentWind = ApparentWind()
     @StateObject var sailAngleFind = SailAngleFind()
+    @StateObject var sailingDataCollector = SailingDataCollector()
+    
     var body: some View {
         ScrollView(.vertical) {
             VStack{
@@ -25,9 +26,8 @@ struct ContentView: View {
             
             VStack{
                 MapView()
-                    .environmentObject(sailingDataCollector)
                     .environmentObject(locationManager)
-                    
+                    .environmentObject(sailingDataCollector)
                     .offset(x:0, y: 320)
                 
             }

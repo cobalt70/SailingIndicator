@@ -67,11 +67,13 @@ struct MapView: View {
             .mapControls{
                 MapUserLocationButton()
                 MapCompass()
+#if !os(watchOS)
                 MapScaleView()
+#endif
                 
             }
             .edgesIgnoringSafeArea(.all)
-       
+        
     }
 // updateCameraPosition 이 필요가 없음 왜냐면  case .automatic = position  이니까.
     private func updateCameraPosition(with location : CLLocation? = nil) {

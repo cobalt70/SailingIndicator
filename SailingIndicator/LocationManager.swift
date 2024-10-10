@@ -56,22 +56,23 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 return
             }
         }
-
+// GPS Info
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             DispatchQueue.main.async {
-                // 계산의 편의상  속도가 1m/sec 이하면 1이라고 라고 가정했음..
+                // 계산의 편의상  속도가 4m/sec 이하면 4m/sec이라고 라고 가정했음..
                 // location.course 가 값을 갖지 않는경우는 추후라도  location.heading 값으로 대체할것임.
                 self.speed = location.speed <= 4 ? 4 : location.speed
                 self.course = location.course
+              
                 self.latitude = location.coordinate.latitude
                 self.longitude  = location.coordinate.longitude
                 self.lastLocation = location
-                
+                print("location updated to \(self.latitude) \(self.longitude)")
             }
         }
     }
-    
+// Magnetic Info : 그래서 분리했음.
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         DispatchQueue.main.async {
             self.heading = newHeading

@@ -35,9 +35,9 @@ class SailAngleFind: ObservableObject {
     static let shared = SailAngleFind() // Singleton instance
     
     init() {
-        
-        startCollectingData()
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.startCollectingData()
+        }
     }
     
     func startCollectingData() {

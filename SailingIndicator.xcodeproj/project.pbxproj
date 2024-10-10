@@ -3,24 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		CE0057882CAA45290019DEFF /* BoatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0057872CAA45290019DEFF /* BoatView.swift */; };
-		CE6DBA122CB2CB5000525B4A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6DBA112CB2CB5000525B4A /* StoreKit.framework */; };
+		CE1522E62CB7ACA60076A95E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC12AB2CA9398C001D22B6 /* ContentView.swift */; };
+		CE1522E72CB7ACA60076A95E /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC12D42CA939B7001D22B6 /* CompassView.swift */; };
+		CE1522E82CB7ACA60076A95E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9439CC2CAFE915000E7442 /* LocationManager.swift */; };
+		CE1522E92CB7ACA60076A95E /* SailingDataCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9439CF2CB03A70000E7442 /* SailingDataCollector.swift */; };
+		CE1522EA2CB7ACA60076A95E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9439D12CB05BE6000E7442 /* MapView.swift */; };
+		CE1522EB2CB7ACA60076A95E /* WindDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA088B82CB1A28600F46A72 /* WindDetector.swift */; };
+		CE1522EC2CB7ACA60076A95E /* ApparentWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8155C22CB370B200E48987 /* ApparentWind.swift */; };
+		CE1522ED2CB7ACA60076A95E /* BoatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0057872CAA45290019DEFF /* BoatView.swift */; };
+		CE1522EE2CB7ACA60076A95E /* SailAngleFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8156622CB3E47000E48987 /* SailAngleFind.swift */; };
+		CE1522F12CB7B0FD0076A95E /* SailingIndicatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC12A92CA9398C001D22B6 /* SailingIndicatorApp.swift */; };
+		CE1522F42CB7B1820076A95E /* WeatherKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1522F32CB7B1820076A95E /* WeatherKit.framework */; };
 		CE8155C32CB370C900E48987 /* ApparentWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8155C22CB370B200E48987 /* ApparentWind.swift */; };
 		CE8156632CB3E47800E48987 /* SailAngleFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8156622CB3E47000E48987 /* SailAngleFind.swift */; };
-		CE8156652CB3F4CD00E48987 /* result.txgt in Resources */ = {isa = PBXBuildFile; fileRef = CE8156642CB3F4BA00E48987 /* result.txgt */; };
 		CE9439CD2CAFE915000E7442 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9439CC2CAFE915000E7442 /* LocationManager.swift */; };
 		CE9439D02CB03A72000E7442 /* SailingDataCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9439CF2CB03A70000E7442 /* SailingDataCollector.swift */; };
 		CE9439D22CB05BEF000E7442 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9439D12CB05BE6000E7442 /* MapView.swift */; };
 		CEA088B92CB1A28F00F46A72 /* WindDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA088B82CB1A28600F46A72 /* WindDetector.swift */; };
-		CEEC12AA2CA9398C001D22B6 /* SailingIndicatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC12A92CA9398C001D22B6 /* SailingIndicatorApp.swift */; };
 		CEEC12AC2CA9398C001D22B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC12AB2CA9398C001D22B6 /* ContentView.swift */; };
 		CEEC12AE2CA9398E001D22B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEC12AD2CA9398E001D22B6 /* Assets.xcassets */; };
 		CEEC12B22CA9398E001D22B6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEC12B12CA9398E001D22B6 /* Preview Assets.xcassets */; };
 		CEEC12D52CA939B7001D22B6 /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC12D42CA939B7001D22B6 /* CompassView.swift */; };
+		CEF2B66E2CB7AB0800748868 /* SailingIndicatorWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CEF2B6612CB7AB0700748868 /* SailingIndicatorWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,15 +47,34 @@
 			remoteGlobalIDString = CEEC12A52CA9398C001D22B6;
 			remoteInfo = SailingIndicator;
 		};
+		CEF2B66C2CB7AB0800748868 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEEC129E2CA9398C001D22B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEF2B6602CB7AB0700748868;
+			remoteInfo = "SailingIndicatorWatch Watch App";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CEBF56B62CB75AC70085ED25 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				CEF2B66E2CB7AB0800748868 /* SailingIndicatorWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CE0057872CAA45290019DEFF /* BoatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatView.swift; sourceTree = "<group>"; };
-		CE5F23E12CB1C56900D5D1F7 /* WeatherKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WeatherKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/WeatherKit.framework; sourceTree = DEVELOPER_DIR; };
-		CE6DBA112CB2CB5000525B4A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CE1522F32CB7B1820076A95E /* WeatherKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WeatherKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS11.0.sdk/System/Library/Frameworks/WeatherKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE8155C22CB370B200E48987 /* ApparentWind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApparentWind.swift; sourceTree = "<group>"; };
 		CE8156622CB3E47000E48987 /* SailAngleFind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SailAngleFind.swift; sourceTree = "<group>"; };
-		CE8156642CB3F4BA00E48987 /* result.txgt */ = {isa = PBXFileReference; lastKnownFileType = text; path = result.txgt; sourceTree = "<group>"; };
 		CE9439CC2CAFE915000E7442 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		CE9439CE2CAFEDB8000E7442 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CE9439CF2CB03A70000E7442 /* SailingDataCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SailingDataCollector.swift; sourceTree = "<group>"; };
@@ -61,14 +89,18 @@
 		CEEC12B72CA9398E001D22B6 /* SailingIndicatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SailingIndicatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEC12C12CA9398E001D22B6 /* SailingIndicatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SailingIndicatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEC12D42CA939B7001D22B6 /* CompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassView.swift; sourceTree = "<group>"; };
+		CEF2B6612CB7AB0700748868 /* SailingIndicatorWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SailingIndicatorWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		CEF2B6622CB7AB0700748868 /* SailingIndicatorWatch Watch App */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "SailingIndicatorWatch Watch App"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CEEC12A32CA9398C001D22B6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE6DBA122CB2CB5000525B4A /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,14 +118,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEF2B65E2CB7AB0700748868 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE1522F42CB7B1820076A95E /* WeatherKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CE5F23E02CB1C56900D5D1F7 /* Frameworks */ = {
+		CE1522F22CB7B1820076A95E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE6DBA112CB2CB5000525B4A /* StoreKit.framework */,
-				CE5F23E12CB1C56900D5D1F7 /* WeatherKit.framework */,
+				CE1522F32CB7B1820076A95E /* WeatherKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -102,7 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				CEEC12A82CA9398C001D22B6 /* SailingIndicator */,
-				CE5F23E02CB1C56900D5D1F7 /* Frameworks */,
+				CEF2B6622CB7AB0700748868 /* SailingIndicatorWatch Watch App */,
+				CE1522F22CB7B1820076A95E /* Frameworks */,
 				CEEC12A72CA9398C001D22B6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -113,6 +153,7 @@
 				CEEC12A62CA9398C001D22B6 /* SailingIndicator.app */,
 				CEEC12B72CA9398E001D22B6 /* SailingIndicatorTests.xctest */,
 				CEEC12C12CA9398E001D22B6 /* SailingIndicatorUITests.xctest */,
+				CEF2B6612CB7AB0700748868 /* SailingIndicatorWatch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,7 +172,6 @@
 				CE8155C22CB370B200E48987 /* ApparentWind.swift */,
 				CE0057872CAA45290019DEFF /* BoatView.swift */,
 				CE8156622CB3E47000E48987 /* SailAngleFind.swift */,
-				CE8156642CB3F4BA00E48987 /* result.txgt */,
 				CEEC12AD2CA9398E001D22B6 /* Assets.xcassets */,
 				CEEC12AF2CA9398E001D22B6 /* SailingIndicator.entitlements */,
 				CEEC12B02CA9398E001D22B6 /* Preview Content */,
@@ -157,10 +197,12 @@
 				CEEC12A22CA9398C001D22B6 /* Sources */,
 				CEEC12A32CA9398C001D22B6 /* Frameworks */,
 				CEEC12A42CA9398C001D22B6 /* Resources */,
+				CEBF56B62CB75AC70085ED25 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CEF2B66D2CB7AB0800748868 /* PBXTargetDependency */,
 			);
 			name = SailingIndicator;
 			productName = SailingIndicator;
@@ -203,6 +245,28 @@
 			productReference = CEEC12C12CA9398E001D22B6 /* SailingIndicatorUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		CEF2B6602CB7AB0700748868 /* SailingIndicatorWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEF2B66F2CB7AB0800748868 /* Build configuration list for PBXNativeTarget "SailingIndicatorWatch Watch App" */;
+			buildPhases = (
+				CEF2B65D2CB7AB0700748868 /* Sources */,
+				CEF2B65E2CB7AB0700748868 /* Frameworks */,
+				CEF2B65F2CB7AB0700748868 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				CEF2B6622CB7AB0700748868 /* SailingIndicatorWatch Watch App */,
+			);
+			name = "SailingIndicatorWatch Watch App";
+			packageProductDependencies = (
+			);
+			productName = "SailingIndicatorWatch Watch App";
+			productReference = CEF2B6612CB7AB0700748868 /* SailingIndicatorWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -210,7 +274,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					CEEC12A52CA9398C001D22B6 = {
@@ -223,6 +287,9 @@
 					CEEC12C02CA9398E001D22B6 = {
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = CEEC12A52CA9398C001D22B6;
+					};
+					CEF2B6602CB7AB0700748868 = {
+						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
@@ -242,6 +309,7 @@
 				CEEC12A52CA9398C001D22B6 /* SailingIndicator */,
 				CEEC12B62CA9398E001D22B6 /* SailingIndicatorTests */,
 				CEEC12C02CA9398E001D22B6 /* SailingIndicatorUITests */,
+				CEF2B6602CB7AB0700748868 /* SailingIndicatorWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -252,7 +320,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEEC12B22CA9398E001D22B6 /* Preview Assets.xcassets in Resources */,
-				CE8156652CB3F4CD00E48987 /* result.txgt in Resources */,
 				CEEC12AE2CA9398E001D22B6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +338,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEF2B65F2CB7AB0700748868 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -278,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1522F12CB7B0FD0076A95E /* SailingIndicatorApp.swift in Sources */,
 				CE9439D22CB05BEF000E7442 /* MapView.swift in Sources */,
 				CEA088B92CB1A28F00F46A72 /* WindDetector.swift in Sources */,
 				CE8155C32CB370C900E48987 /* ApparentWind.swift in Sources */,
@@ -287,7 +362,6 @@
 				CE8156632CB3E47800E48987 /* SailAngleFind.swift in Sources */,
 				CEEC12AC2CA9398C001D22B6 /* ContentView.swift in Sources */,
 				CE0057882CAA45290019DEFF /* BoatView.swift in Sources */,
-				CEEC12AA2CA9398C001D22B6 /* SailingIndicatorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +379,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEF2B65D2CB7AB0700748868 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE1522E62CB7ACA60076A95E /* ContentView.swift in Sources */,
+				CE1522E72CB7ACA60076A95E /* CompassView.swift in Sources */,
+				CE1522E82CB7ACA60076A95E /* LocationManager.swift in Sources */,
+				CE1522E92CB7ACA60076A95E /* SailingDataCollector.swift in Sources */,
+				CE1522EA2CB7ACA60076A95E /* MapView.swift in Sources */,
+				CE1522EB2CB7ACA60076A95E /* WindDetector.swift in Sources */,
+				CE1522EC2CB7ACA60076A95E /* ApparentWind.swift in Sources */,
+				CE1522ED2CB7ACA60076A95E /* BoatView.swift in Sources */,
+				CE1522EE2CB7ACA60076A95E /* SailAngleFind.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -318,14 +408,22 @@
 			target = CEEC12A52CA9398C001D22B6 /* SailingIndicator */;
 			targetProxy = CEEC12C22CA9398E001D22B6 /* PBXContainerItemProxy */;
 		};
+		CEF2B66D2CB7AB0800748868 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEF2B6602CB7AB0700748868 /* SailingIndicatorWatch Watch App */;
+			targetProxy = CEF2B66C2CB7AB0800748868 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CEEC12C92CA9398E001D22B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -374,10 +472,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_WKExtensionDelegateClassName = "";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -386,8 +487,11 @@
 		CEEC12CA2CA9398E001D22B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -430,9 +534,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_WKExtensionDelegateClassName = "";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos";
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -453,6 +561,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SailingIndicator/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Will you allow to use the location info?";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Will you allow the app to use the location info always.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Will you allow to use the location info?";
@@ -474,6 +583,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.giwoo.andy.SailingIndicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = NO;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -499,6 +609,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SailingIndicator/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Will you allow to use the location info?";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Will you allow the app to use the location info always.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Will you allow to use the location info?";
@@ -520,6 +631,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.giwoo.andy.SailingIndicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = NO;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -623,6 +735,81 @@
 			};
 			name = Release;
 		};
+		CEF2B6702CB7AB0800748868 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SailingIndicatorWatch Watch App/SailingIndicatorWatch Watch AppDebug.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SailingIndicatorWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = TB9MFLQJ6C;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SailingIndicatorWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.giwoo.andy.SailingIndicator;
+				INFOPLIST_KEY_WKExtensionDelegateClassName = "";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.giwoo.andy.SailingIndicator.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = NO;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,4";
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		CEF2B6712CB7AB0800748868 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SailingIndicatorWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = TB9MFLQJ6C;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SailingIndicatorWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.giwoo.andy.SailingIndicator;
+				INFOPLIST_KEY_WKExtensionDelegateClassName = "";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.giwoo.andy.SailingIndicator.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = NO;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,4";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -658,6 +845,15 @@
 			buildConfigurations = (
 				CEEC12D22CA9398E001D22B6 /* Debug */,
 				CEEC12D32CA9398E001D22B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEF2B66F2CB7AB0800748868 /* Build configuration list for PBXNativeTarget "SailingIndicatorWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEF2B6702CB7AB0800748868 /* Debug */,
+				CEF2B6712CB7AB0800748868 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

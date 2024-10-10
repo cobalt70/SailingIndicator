@@ -27,8 +27,7 @@ class SailingDataCollector : ObservableObject {
     static let shared = SailingDataCollector()
 
     @Published var sailingDataArray: [SailingData] = []
-//    @ObservedObject var locationManager = LocationManager()
-//    @ObservedObject var windData = WindDetector()
+
     let locationManager = LocationManager.shared
     let windData = WindDetector.shared
     

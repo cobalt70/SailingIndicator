@@ -43,7 +43,7 @@ class WindDetector : ObservableObject{
     func startCollectingWind() {
         
         let location = locationManager.lastLocation ?? CLLocation(latitude: 37.522, longitude: 126.976)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             Task {
                 print("Fectching wind in the disptach")
                 await self.fetchCurrentWind(for: location)

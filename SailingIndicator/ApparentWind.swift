@@ -29,17 +29,18 @@ class ApparentWind : ObservableObject {
         
     }
     func startCollectingData() {
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
 //            self.calcApparentWind()
 //            
 //              }
-//        Timer.publish(every: 60, on: .main, in: .common)
+        // 차라리 5초마다 주기적으로 계산하는것이 안정적일듯..
+//        Timer.publish(every: 5, on: .main, in: .common)
 //            .autoconnect()
 //            .sink { [weak self] _ in
 //                self?.calcApparentWind()
 //            }
 //            .store(in: &cancellables)
-//        
+
         
         Publishers.CombineLatest3(windData.$speed, windData.$direction, windData.locationManager.$heading)
             .sink { [weak self] _ , _ , _  in
@@ -113,7 +114,6 @@ class ApparentWind : ObservableObject {
         print("apparent wind speed \(speed!)")
         print("apparent wind direction d: \(direction!)  s:\(speed!) x: \(apparentWindX) y: \(apparentWindY)")
     }
-    
     func calculateThetaY(x: Double, y: Double) -> Double {
         let theta = atan2(x, y) * (180 / .pi) // y축에 대한 각도 계산
         return theta < 0 ? theta + 360 : theta // 음수 각도를 양수로 변환
