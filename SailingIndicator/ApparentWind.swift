@@ -65,7 +65,7 @@ class ApparentWind : ObservableObject {
         
         
         
-        print("calcApparentWind from windSpeed: \(windSpeed) windDirection \(windDirection)")
+        print("calcApparentWind from trueWind: \(windSpeed) windDirection \(windDirection)")
         print("calcApparentWind from boatHeading:  \(boatSpeed) boatHeading\(boatHeading)")
         
         var windX : Double {

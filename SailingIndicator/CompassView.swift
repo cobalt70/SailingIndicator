@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct CompassView: View {
-// View에서는  Sigleton 썼더니 화면이 업데이트가 안되서 다시 원복.
+    // View에서는  Sigleton 썼더니 화면이 업데이트가 안되서 다시 원복.
     @State var showAlert : Bool = false
     @EnvironmentObject private var locationManager : LocationManager
     @EnvironmentObject private var windDetector : WindDetector
@@ -29,7 +29,7 @@ struct CompassView: View {
             let r5 = geometry.size.width * 0.43
             let r6 = geometry.size.width * 0.45
             
-            VStack{
+            VStack(alignment: .center){
                 ZStack {
                     // 나침반 원
                     // reflection이  y축 기준으로 발생하니까 수학좌표계로는  clockwise
@@ -81,7 +81,7 @@ struct CompassView: View {
                     
                     
                     // 글자 및 방향 표시
-                    let marks = ["북" , "30" , "60" , "동", "120", "150", "남", "210", "240", "서" ,"300", "330"]
+                    let marks = ["N" , "30" , "60" , "E", "120", "150", "S", "210", "240", "W" ,"300", "330"]
                     
                     ForEach(0..<marks.count, id: \.self) { index in
                         let angle = Angle(degrees: 90 - Double(index) * 30) // 각도 계산
@@ -102,15 +102,43 @@ struct CompassView: View {
                         .offset(x: cx, y: cy)
                         .fill(Color.red)
                         
+#if !os(watchOS)  // watchOS가 아닐 때만 그려짐
+                        if index % 3 != 0 {
+                            Text(marks[index])
+                                .rotationEffect(Angle(degrees: Double(index) * 30), anchor: .center)
+                                .position(x: cx, y: cy)
+                                .offset(x: x, y: -y)
+                                .font(.system(size: 12))
+                        } else {
+                            Text(marks[index])
+                                .rotationEffect(Angle(degrees: Double(index) * 30), anchor: .center)
+                                .position(x: cx, y: cy)
+                                .offset(x: x, y: -y)
+                                .font(.system(size: 16))
+                                .fontWeight(.bold)
+                                .foregroundColor( index == 0 ? Color.red : Color.black)
+                        }
                         
-                        Text(marks[index])
-                            .rotationEffect(Angle(degrees: Double(index) * 30), anchor: .center)
-                            .position(x:cx, y:cy)
-                            .offset(x: x, y: -y)
                         
+                        
+#endif
+                        
+#if os(watchOS)
+                        Text(marks[0])
+                            .rotationEffect(Angle(degrees: Double(0) * 30), anchor: .center)
+                            .position(x: cx, y: cy)
+                            .offset(x: 0, y: -r3)
+                            .font(.system(size: 12))
+                            .foregroundColor(.red)
+                        
+                        
+#endif
                         
                     }.rotationEffect(Angle(degrees: (  -(locationManager.heading?.trueHeading ?? 0))), anchor: .init(x: cx / geometry.size.width , y: cy / geometry.size.width ))
-                   // Wind direction draw
+                    // Wind direction draw
+                    
+                    
+                    
                     
                     let sfSymbolName = "location.north.fill"
                     if let direction = windDetector.direction , let speed = windDetector.speed {
@@ -126,13 +154,12 @@ struct CompassView: View {
                             .foregroundColor(.blue)
                             .position(x:cx, y:cy)
                             .offset(x: x, y: -y)
-                     // apparent wind direction draw // 근데 여기서 계산까지 해줘야 하나 아니면 다른데서??
-                     
+                        // apparent wind direction draw // 근데 여기서 계산까지 해줘야 하나 아니면 다른데서??
+
                     }
                     
                     if let direction = apparentWind.direction , let speed = apparentWind.speed {
-                        
-                      
+
                         let angle = Angle(degrees: 90 - direction + (locationManager.heading?.trueHeading ?? 0)) // 각도 계산
                         let x = r6 * cos(angle.radians) // x 좌표
                         let y = r6 * sin(angle.radians) // y 좌표
@@ -144,26 +171,16 @@ struct CompassView: View {
                             .foregroundColor(.red)
                             .position(x:cx, y:cy)
                             .offset(x: x, y: -y)
-                     // apparent wind direction draw // 근데 여기서 계산까지 해줘야 하나 아니면 다른데서??
-                     
+                        // apparent wind direction draw // 근데 여기서 계산까지 해줘야 하나 아니면 다른데서??
                     }
-                    
-                    
-                    
-
-                }.frame(width: geometry.size.width, height: geometry.size.width )
-                    .overlay{
-                        BoatView().offset(x: cx, y: cy)
-                            .environmentObject(sailAngleFind)
-                            
-                    }
-                
-                
-            }
-            
+               }
+                .overlay{
+                    BoatView().offset(x: cx, y: cy)
+                        .environmentObject(sailAngleFind)
+                }
+           }
         }
     }
-    
 }
 
 

@@ -11,7 +11,7 @@ import SwiftUI
 struct SailingIndicatorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().ignoresSafeArea(.all)
         }
     }
 }
