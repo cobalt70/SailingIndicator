@@ -43,11 +43,13 @@ class WindDetector : ObservableObject{
     func startCollectingWind() {
         
         let location = locationManager.lastLocation ?? CLLocation(latitude: 37.522, longitude: 126.976)
+        let shared = LocationManager.shared
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             Task {
                 print("Fectching wind in the disptach")
-                await self.fetchCurrentWind(for: location)
-                
+                if let location =  shared.lastLocation {
+                    await self.fetchCurrentWind(for: location)
+                }
             }
         }
         
@@ -56,8 +58,9 @@ class WindDetector : ObservableObject{
             .sink { [weak self] _ in
                 Task { [weak self] in
                     print("Fectching wind in the timer")
-                    await self?.fetchCurrentWind(for: location)
-                    
+                    if let location =  shared.lastLocation {
+                        await self?.fetchCurrentWind(for: location)
+                    }
                 }
             }
         
