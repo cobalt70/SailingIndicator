@@ -89,14 +89,19 @@ struct BoatView: View{
             let ly =  sailLength * cos(sailAngle.radians) - 20
             
             Path { path in
-       
+                let lb1 = mast
+                let lb2 = CGPoint(x : lx / 4 , y:  mast.y + ly / 4)
+                let lb3 = CGPoint(x:  lx / 2 , y:  mast.y + ly / 2)
+                let lb4 = CGPoint(x : lx, y:  ly)
                 let sailEnd = CGPoint(x: lx, y: ly)
-                path.move(to: sailEnd)
-                path.addLine(to: mast)
+//                path.move(to: sailEnd)
+//                path.addLine(to: mast)
+                path.move(to: lb1)
+                path.addCurve(to: lb4, control1: lb2, control2: lb3)
                 
+                    
             }.stroke(Color.blue, lineWidth: 4)
-                .animation(.bouncy, value: sailAngle.degrees)
-              
+          //   .animation(.spring, value: ly)   // 무슨 효과가 있다는건지..
               
         } .onAppear {
             updateSailAngle()
@@ -126,7 +131,8 @@ struct BoatView: View{
         self.angleStep = Angle(degrees: self.diffAngle.degrees > 0 ? 3 : -3 )
         currentSailAngle = self.previousSailAngle
         
-      
+        // self.sailAngle = self.newSailAngle  vs startTimer() 둘중 하나만 사용
+        // self.sailAngle = self.newSailAngle
         startTimer()
         print("newSailAngle in the updateSailAngle: \(self.sailAngle.degrees)")
         
