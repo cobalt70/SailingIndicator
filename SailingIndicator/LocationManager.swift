@@ -71,6 +71,10 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 self.latitude = location.coordinate.latitude
                 self.longitude  = location.coordinate.longitude
                 self.lastLocation = location
+                DispatchQueue.main.async {
+                              self.latitude = location.coordinate.latitude
+                              self.longitude = location.coordinate.longitude
+                          }
                 print("location updated to \(self.latitude) \(self.longitude)")
             }
         }

@@ -96,16 +96,18 @@ class SailAngleFind: ObservableObject {
         var relativeWindDirection = fmod( trueWindDirection - boatHeading , 360)
         var relativeApparentWindDirection  = fmod (apparentWindDirection  - boatHeading , 360)
         
-        // 왼쪽방향을 넘어서면 오른쪽 방향에서 계싼
+        // 왼쪽방향을 넘어서면 오른쪽 방향에서 계산
         if relativeWindDirection <  -180 {
             relativeWindDirection  += 360
         }
         // 오른쪽 방향을 넘어가면 왼쪽 방향에서 계산
         
-        
-        if relativeWindDirection > 180 {
+        // relativeApparentWind Direction도 위와 동일
+        if relativeApparentWindDirection > 180 {
             relativeWindDirection -= 360
         }
+        // relativeApparentWind Direction도 조정
+        
         if relativeApparentWindDirection <  -180 {
             relativeApparentWindDirection  += 360
         }
